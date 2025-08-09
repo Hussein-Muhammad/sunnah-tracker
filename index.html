@@ -1512,8 +1512,8 @@ body::before {
 
 class SunnahTracker {
     constructor() {
-        this.currentLanguage = localStorage.getItem('language') || 'en';
-        this.currentTheme = localStorage.getItem('theme') || 'system';
+        this.currentLanguage = localStorage.getItem('language') || 'ar';
+        this.currentTheme = localStorage.getItem('theme') || 'light';
         this.currentDate = new Date();
         this.selectedDate = new Date();
         this.prayerData = this.loadPrayerData();
@@ -2304,3 +2304,4 @@ document.addEventListener('DOMContentLoaded', () => {
     </script>
 </body>
 </html>
+
