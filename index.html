@@ -1,0 +1,2306 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sunnah Tracker - السنن الرواتب</title>
+    <meta name="theme-color" content="#8B4513">
+    <meta name="description" content="Track your daily Sunnah prayers - تتبع السنن الرواتب">
+    
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="data:application/json;base64,eyJuYW1lIjoiU3VubmFoIFRyYWNrZXIgLSDYqtiq2KjYuSDYp9mE2LPZhtmGINin2YTYsdmI2KfYqtioIiwic2hvcnRfbmFtZSI6IlN1bm5haCBUcmFja2VyIiwic3RhcnRfdXJsIjoiLyIsImRpc3BsYXkiOiJzdGFuZGFsb25lIiwiYmFja2dyb3VuZF9jb2xvciI6IiNGNUY1REMiLCJ0aGVtZV9jb2xvciI6IiM4QjQ1MTMiLCJkZXNjcmlwdGlvbiI6IlRyYWNrIHlvdXIgZGFpbHkgU3VubmFoIHByYXllcnMgYW5kIFFpeWFtIEFsLUxheWwiLCJpY29ucyI6W3sic3JjIjoiZGF0YTppbWFnZS9zdmcreG1sO2Jhc2U2NCxQSE4yWnlCM2FXUjBhRDBpTkRnd0lpQm9aV2xuYUhROUlqUTRNQ0lpSUhabGNuTnBiMjQ5SWpBZ01DQTBPREFnTkRnd0lpQjRiV3h1Y3owaWFIUjBjRG92TDNkM2R5NTNNeTV2Y21jdk1qQXdNQzl6ZG1jaVBnMEtJQ0E4SVMwdElFSmhZMnRuY205MWJtUWdZMmx5WTJ4bElDMHRQZzBLSUNBOFkybHlZMnhsSUdONFBTSXlOREFpSUdONVBTSXlOREFpSUhJOUlqSTBNQ0lnWm1sc2JEMGlJMFkxUmpWRVF5SXZQZzBLSUNBTkNpQWdQQ0V0TFNCV2FYSmpiR3hoY2lCaWIzSmtaWElnTFMwK0RRb2dJRHhqYVhKamJHVWdZM2c5SWpJME1DSWdZM2s5SWpJME1DSWdjajBpTWpJd0lpQm1hV3hzUFNKdWIyNWxJaUJ6ZEhKdmEyVTlTU0k0UWpRMU1UTWlJSE4wY205clpTMTNhV1IwYUQwaU9DSXZQZzBLSUNBOFkybHlZMnhsSUdONFBTSXlOREFpSUdONVBTSXlOREFpSUhJOUlqSXdNQ0lnWm1sc2JEMGlibTl1WlNJZ2MzUnliMnRsUFNJalJFRkJOVEl3SWlCemRISnZhMlV0ZDJsa2RHZzlTU0l6U1M4K0RRb2dJQTBLSUNBOElTMHRJRTF2YUdGdFpXUWdRV3hwSUUxdmMzRjFaU0JFWlhOcFoyNGdMUzArRFFvZ0lBMEtJQ0E4SVMwdElFMWhhVzRnYlc5emNYVmxJR0poYzJVZ0tFOTBkRzl0WVc0Z2MzUjViR1VwSUMwdFBnMEtJQ0E4Y21WamRDQjRQU0l4TURBaUlIazlTU0l6TURBaUlIZHBaSFJvUFNJeU9EQWlJR2hsYVdkb2REMGlNVEF3SWlCbWFXeHNQU0lqTmpVME16SXhTUzgrRFFvZ0lBMEtJQ0E4SVMwdElFTmxiblJ5WVd3Z2JXRnpjMmwyWlNCa2IyMWxJQ2hzYVd0bElFMXZhR0Z0WldRZ1FXeHBJRTF2YzNGMVpTa2dMUzArRFFvZ0lEeGxiR3hwY0hObElHTjRQU0l5TkRBaUlHTjVQU0l6TURBaUlISjRQU0l4TWpBaUlISjVQU0k1TUNJZ1ptbHNiRDBpSXpoQ05EVXhNeUl2UGcwS0lDQU5DaUFnUENFdExTQkdiM1Z5SUhObGJXa3RaRzl0WlhNZ1lYSnZkVzVrSUhSb1pTQnRZV2x1SUdSdmJXVWdLRTkwZEc5dFlXNGdZMmhoY21GamRHVnlhWE4wYVdNcElDMHRQZzBLSUNBOFpXeHNhWEJ6WlNCamVEMGlNVFl3SWlCamVUMGlNekl3SWlCeWVEMGlOVEFpSUhKNVBTSTBNQ0lnWm1sc2JEMGlJalkxTkRNeU1TSXZQZzBLSUNBOFpXeHNhWEJ6WlNCamVEMGlNekl3SWlCamVUMGlNekl3SWlCeWVEMGlOVEFpSUhKNVBTSTBNQ0lnWm1sc2JEMGlJalkxTkRNeU1TSXZQZzBLSUNBOFpXeHNhWEJ6WlNCamVEMGlNakF3SWlCamVUMGlNamd3SWlCeWVEMGlOREFpSUhKNVBTSXpNQ0lnWm1sc2JEMGlJalkxTkRNeU1TSXZQZzBLSUNBOFpXeHNhWEJ6WlNCamVEMGlNamd3SWlCamVUMGlNamd3SWlCeWVEMGlOREFpSUhKNVBTSXpNQ0lnWm1sc2JEMGlJalkxTkRNeU1TSXZQZzBLSUNBTkNpQWdQQ0V0TFNCVWQybHVJRTkwZEc5dFlXNGdiV2x1WVhKbGRITWdLSEJsYm1OcGJDMTBhR2x1SUdGdVpDQjBZV3hzSUd4cGEyVWdUVzlvWVcxbFpDQkJiR2tnVFc5emNYVmxLU0F0TFQ0TkNpQWdQR2MrRFFvZ0lDQWdQQ0V0TFNCTVpXWjBJRzFwYm1GeVpYUWdMUzArRFFvZ0lDQWdQSEpsWTNRZ2VEMGlNVE13SWlCNVBTSTRNQ0lnZDJsa2RHZzlTU0l5TUNJZ2FHVnBaMmgwUFNJeU1qQWlJR1pwYkd3OVNTSTRRalExTVRNaUx6NE5DaUFnSUNBOElTMHRJRTFwYm1GeVpYUWdZbUZzWTI5dWVTQXRMVDROQ2lBZ0lDQThjbVZqZENCNFBTSXhNalVpSUhrOVNTSXhPREFpSUhkcFpIUm9QU0l6TUNJZ2FHVnBaMmgwUFNJNElpQm1hV3hzUFNJak5qVTBNekl4U1M4K0RRb2dJQ0FnUENFdExTQk5hVzVoY21WMElHTmhjaUF0TFQ0TkNpQWdJQ0E4Wld4c2FYQnpaU0JqZUQwaU1UUXdJaUJqZVQwaU56VWlJSEo0UFNJeE5TSWdjbms5U1NJeU1DSWdabWxzYkQwaUl6WTFORE15TVVrdlBnMEtJQ0FnSURBaElTMHRJRU55WlhOalpXNTBJQzB0UGcwS0lDQWdJRHh3WVhSb0lHUTlJazB4TXpVZ05UVWRRMEV6TlNBMU1Dd2dNVFF3SURRMUxDQXhORFVnTlRCRE1UUXpJRFUxTENBeE5ETWdOakFzSURFME5TQTJOVUJUUVRBZ05qVXNJREV6TlNBMk1Dd2dNVE0xSURVMUlGb2lJR1pwYkd3OVNTSkVRVUUxTWpBaUx6NE5DaUFnSUNBTkNpQWdJQ0E4SVMwdElGSnBaMmgwSUcxcGJtRnlaWFFnTFMwK0RRb2dJQ0FnUEhKbFkzUWdlRDBpTXpNd0lpQjVQU0k0TUNJZ2QybGtkR2c5U1NJeU1DSWdhR1ZwWjJoMFBTSXlNakFpSUdacGJHdzlTU0k0UWpRMU1UTWlMejROQ2lBZ0lDQThJUzB0SWsxcGJtRnlaWFFnWW1Gc1kyOXVlU0F0TFQ0TkNpQWdJQ0E4Y21WamRDQjRQU0l6TWpVaUlIazlTU0l4T0RBaUlIZHBaSFJvUFNJek1DSWdhR1ZwWjJoMFBTSTRJaUJtYVd4c1BTSWpOalUwTXpJeFNTOCtEUW9nSUNBZ1BDRXRMUzFOYVc1aGNtVjBJR05oY2lBdExUNE5DaUFnSUNBOFpXeHNhWEJ6WlNCamVEMGlNek13SWlCamVUMGlOelVpSUhKNFBTSXhOU0lnY25rOVNTSXlNQ0lnWm1sc2JEMGlJalkxTkRNeU1VSXZQZzBLSUNBZ0lEeGhJUzB0SWtOeVpYTmpaVzUwSUM0dExUNE5DaUFnSUNBOGNHRjBhQ0JrUFNKTk16TTFJRFV4SUVNek16VWdOVEFzSURNME1DQTBOUnNnTXpRMUlEVXdRek0wTXlBMU5Td2dNelF6SURZd0xDQXpORFVnTmpsRE16UXdJRFkxTENBek16VWdOakFzSURNek5TQTFOUzFhSWlCbWFXeHNQU0lqUkVGQk5USXdTUzgrRFFvZ0lDQThMMmMrRFFvZ0lBMEtJQ0E4SVMwdElFOTBkRzl0WVc0dGMzUjViR1VnWlc1MGNtRnVZMlVnY0c5eWRHRnNJQzB0UGcwS0lDQThadzROQ2lBZ0lDQThJUzB0SWsxaGFXNGdaVzUwY21GdVkyVWdZWEpqYUNCc2JHRnlaMlZ5SUdGdVpDQnRiM0psSUc5eWJtRjBaU2xnTFMwK0RRb2dJQ0FnUEhCaGRHZ2daRDBpVFRFNU1DQXpOVEJNTVRrd0lEUXdNRXd5T1RBZ05EQXdURkk1TUNBek5UQkRNamt3SURNMU1UZ2dNalkxSURNd01Dd2dNalF3SURNd01FTXlNVFVnTXpBd0xDQXhPVEFnTXpJMUxDQXhPVEFnTXpVd0lGb2lJR1pwYkd3OVNTSk1Wakl4RGlJdlBnMEtJQ0FnSUEwS0lDQWdJRHdoTFMwdElFVnVkSEpoYm1ObElHTnZiSFZ0Ym5NZ0xTMCtEUW9nSUNBZ1BISmxZM1JnZUQwaU1UZzFJaUI1UFNJek5UQWlJSGRwWkhSb1BTSTRJaUJvWldsbmFIUTlTU0kxTUNJZ1ptbHNiRDBpU1RoQ05EVXhNeUl2UGcwS0lDQWdJRHh5WldOMElIZzlTU0l5T0RjaUlIazlTU0l6TlRBaUlIZHBaSFJvUFNJNElpQm9aV2xuYUhROVNTSTFNQ0lnWm1sc2JEMGlTem9hRGlJdlBnMEtJQ0FnSUEwS0lDQWdJRHdoTFMwdElGTnBaR1VnYzIxaGJHeGxjaUJoY21Ob1pYTWdMUzArRFFvZ0lDQWdQSEJoZEdnZ1pEMGlUVEV6TUNBek5qQk1NVE13SURNNVRFRTJNQ0F6T1RCRE1UWXdJRE0zTlN3Z01UUTTFTUTFNQ0lEUXdJR3NYaUlnWm1sc2JEMGlJMFl6Q1NJdlBnMEtJQ0FnSUR4d1lYUm9JR1E5U1UxTXpVd0lETTJNRU16TXpVZ016WXdMQ0F6TWpBZ016YzFMQ0F6TWpBZ016a3dURE0xTUNBemVRQk1NelV3SURNMk1DVmFJaUJtYVd4c1BTSWZWM0JEU1M4K0RRb2dJRHd2Wno0TkNpQWdEUW9nSUR3aElTMHRJRTkwZEc5dFlXNGdkMmx1Wkc5M2N5QW9ZWEpqYUdWa0tTQXRMVDROQ2lBZ1BHY2dabWxzYkQwaVNTTjFNUzlGSUNBNklDOUtJejNaRFFvZ0lDQWdQR1ZzYkdsd2MyVWdZM2c5U1NJeU1EQWlJR041UFNJek5EQWlJSEo0UFNJNElpQnllVDBpTVRJaUx6NE5DaUFnSUNBOFpXeHNhWEJ6WlNCamVEMGlTUUl4UURBaUlHTjVQU0l6TXpVaUlISjRQU0k0SWlCeWVUMGlNVElpTHo0TkNpQWdJQ0E4Wld4c2FYQnpaU0JqZUQwaU1qZ3dJaUJqZVQwdVZ6UWlJSEo0UFNJNElpQnllVDBpTVRJaUx6NE5DaUFnUEM5blBnMEtJQ0FOUZW9nSUR3aElTMHRJRVJsWTI5eVlYUnBkbVVnVDNSMGIyMWhiaUJsYkdWdFpXNTBjeUF0TFQ0TkNpQWdQR2M9Iiwic2l6ZXMiOiI0ODB4NDgwIiwidHlwZSI6ImltYWdlL3N2Zyt4bWwifV19">
+    
+    <!-- Enhanced Arabic Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Naskh+Arabic:wght@400;500;600;700&family=Amiri:wght@400;700&family=Scheherazade+New:wght@400;700&family=Reem+Kufi:wght@400;600&display=swap" rel="stylesheet">
+    
+    <style>
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Islamic Color Palette */
+:root {
+    --islamic-cream: #F5F5DC;
+    --islamic-gold: #DAA520;
+    --islamic-golden: #B8860B;
+    --islamic-brown: #8B4513;
+    --islamic-dark-brown: #654321;
+    --islamic-light-gold: #F4E4BC;
+    --islamic-warm-white: #FDF5E6;
+    --islamic-accent: #CD853F;
+    --islamic-text: #2F1B14;
+    --islamic-border: #D2B48C;
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background: linear-gradient(135deg, var(--islamic-cream) 0%, var(--islamic-light-gold) 100%);
+    min-height: 100vh;
+    color: var(--islamic-text);
+    line-height: 1.6;
+    position: relative;
+}
+
+/* Islamic Background Pattern */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        radial-gradient(circle at 20% 80%, rgba(218, 165, 32, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(139, 69, 19, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 40% 40%, rgba(212, 175, 55, 0.05) 0%, transparent 50%);
+    pointer-events: none;
+    z-index: -1;
+}
+
+/* RTL Support with Enhanced Arabic Fonts */
+[dir="rtl"] {
+    font-family: 'Amiri', 'Scheherazade New', 'Noto Naskh Arabic', 'Inter', sans-serif;
+}
+
+/* App Container with Islamic styling */
+#app {
+    max-width: 480px;
+    margin: 0 auto;
+    background: var(--islamic-warm-white);
+    min-height: 100vh;
+    box-shadow: 0 0 30px rgba(139, 69, 19, 0.15);
+    position: relative;
+    border-radius: 0;
+}
+
+/* Islamic Header with Golden Gradient */
+.header {
+    background: linear-gradient(135deg, var(--islamic-brown) 0%, var(--islamic-dark-brown) 100%);
+    color: var(--islamic-warm-white);
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    border-bottom: 3px solid var(--islamic-gold);
+    position: relative;
+}
+
+/* Islamic Header Decoration */
+.header::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent 0%, var(--islamic-gold) 20%, var(--islamic-gold) 80%, transparent 100%);
+}
+
+.app-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin: 0;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    position: relative;
+}
+
+/* Islamic Title Underline */
+.app-title::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--islamic-gold) 0%, var(--islamic-golden) 50%, var(--islamic-gold) 100%);
+    border-radius: 1px;
+}
+
+.header-controls {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.theme-toggle,
+.language-toggle {
+    background: rgba(218, 165, 32, 0.2);
+    border: 2px solid var(--islamic-gold);
+    color: var(--islamic-warm-white);
+    font-size: 1.2rem;
+    padding: 0.5rem;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(5px);
+}
+
+.theme-toggle:hover,
+.language-toggle:hover {
+    background: rgba(218, 165, 32, 0.4);
+    transform: scale(1.1);
+    box-shadow: 0 0 15px rgba(218, 165, 32, 0.5);
+}
+
+/* Main Content with Islamic styling */
+.main-content {
+    padding: 1rem;
+    background: var(--islamic-warm-white);
+}
+
+/* Dashboard View with Islamic styling */
+.dashboard-view {
+    background: var(--islamic-warm-white);
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 8px 25px rgba(139, 69, 19, 0.1);
+    margin-bottom: 1rem;
+    border: 2px solid var(--islamic-border);
+    position: relative;
+}
+
+/* Islamic Card Decoration */
+.dashboard-view::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--islamic-gold) 0%, var(--islamic-golden) 50%, var(--islamic-gold) 100%);
+}
+
+.dashboard-header {
+    background: linear-gradient(135deg, var(--islamic-cream) 0%, var(--islamic-light-gold) 100%);
+    padding: 1rem;
+    border-bottom: 2px solid var(--islamic-border);
+    position: relative;
+}
+
+.dashboard-title {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--islamic-dark-brown);
+    margin: 0;
+    text-align: center;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+
+.dashboard-content {
+    padding: 2rem 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    background: var(--islamic-warm-white);
+}
+
+.progress-circle {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.progress-ring {
+    transform: rotate(-90deg);
+    filter: drop-shadow(0 4px 8px rgba(139, 69, 19, 0.2));
+}
+
+.progress-ring-bg {
+    fill: none;
+    stroke: var(--islamic-border);
+}
+
+.progress-ring-fill {
+    fill: none;
+    stroke: var(--islamic-golden);
+    stroke-linecap: round;
+    stroke-dasharray: 339.292;
+    stroke-dashoffset: 339.292;
+    transition: stroke-dashoffset 0.5s ease;
+    filter: drop-shadow(0 2px 4px rgba(218, 165, 32, 0.3));
+}
+
+.progress-text {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.progress-text span:first-child {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--islamic-dark-brown);
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.progress-label {
+    font-size: 0.8rem;
+    color: var(--islamic-brown);
+    margin-top: 0.25rem;
+    font-weight: 500;
+}
+
+.week-stats {
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+}
+
+.stat-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 1rem;
+    background: var(--islamic-cream);
+    border-radius: 10px;
+    border: 1px solid var(--islamic-border);
+    min-width: 80px;
+}
+
+.stat-number {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--islamic-dark-brown);
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.stat-label {
+    font-size: 0.8rem;
+    color: var(--islamic-brown);
+    text-align: center;
+    font-weight: 500;
+}
+
+.dashboard-actions {
+    padding: 1rem;
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.action-btn {
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 10px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.action-btn.primary {
+    background: linear-gradient(135deg, var(--islamic-brown) 0%, var(--islamic-dark-brown) 100%);
+    color: var(--islamic-warm-white);
+    border: 2px solid var(--islamic-gold);
+    box-shadow: 0 4px 15px rgba(139, 69, 19, 0.3);
+}
+
+.action-btn.primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(139, 69, 19, 0.4);
+}
+
+.action-btn.secondary {
+    background: var(--islamic-cream);
+    color: var(--islamic-dark-brown);
+    border: 2px solid var(--islamic-brown);
+    box-shadow: 0 2px 8px rgba(139, 69, 19, 0.2);
+}
+
+.action-btn.secondary:hover {
+    background: var(--islamic-brown);
+    color: var(--islamic-warm-white);
+    transform: translateY(-1px);
+}
+
+/* Calendar View with Islamic styling */
+.calendar-view {
+    background: var(--islamic-warm-white);
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 8px 25px rgba(139, 69, 19, 0.1);
+    border: 2px solid var(--islamic-border);
+    position: relative;
+}
+
+.calendar-view::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--islamic-gold) 0%, var(--islamic-golden) 50%, var(--islamic-gold) 100%);
+}
+
+.calendar-header {
+    background: linear-gradient(135deg, var(--islamic-cream) 0%, var(--islamic-light-gold) 100%);
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid var(--islamic-border);
+}
+
+.nav-btn {
+    background: var(--islamic-brown);
+    color: var(--islamic-warm-white);
+    border: 2px solid var(--islamic-gold);
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1.2rem;
+    transition: all 0.3s ease;
+    font-weight: 600;
+}
+
+.nav-btn:hover {
+    background: var(--islamic-dark-brown);
+    transform: scale(1.05);
+    box-shadow: 0 4px 12px rgba(139, 69, 19, 0.3);
+}
+
+.month-title {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--islamic-dark-brown);
+    margin: 0;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+/* Calendar Grid with Islamic styling */
+.calendar-grid {
+    padding: 1rem;
+    background: var(--islamic-warm-white);
+}
+
+.weekdays {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 4px;
+    margin-bottom: 0.5rem;
+}
+
+.weekday {
+    text-align: center;
+    font-weight: 600;
+    color: var(--islamic-brown);
+    font-size: 0.9rem;
+    padding: 0.5rem 0;
+    background: var(--islamic-cream);
+    border-radius: 6px;
+    border: 1px solid var(--islamic-border);
+}
+
+.calendar-days {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 4px;
+}
+
+.calendar-day {
+    aspect-ratio: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 500;
+    position: relative;
+    border: 2px solid transparent;
+    background: var(--islamic-warm-white);
+    color: var(--islamic-text);
+}
+
+.calendar-day:hover {
+    background: var(--islamic-light-gold);
+    transform: scale(1.05);
+    box-shadow: 0 4px 12px rgba(139, 69, 19, 0.2);
+}
+
+.calendar-day.today {
+    background: linear-gradient(135deg, var(--islamic-gold) 0%, var(--islamic-golden) 100%);
+    color: var(--islamic-warm-white);
+    font-weight: 600;
+    box-shadow: 0 4px 12px rgba(218, 165, 32, 0.4);
+}
+
+.calendar-day.other-month {
+    color: var(--islamic-border);
+    background: var(--islamic-cream);
+}
+
+.calendar-day.has-data {
+    border-color: var(--islamic-golden);
+    background: var(--islamic-light-gold);
+}
+
+.calendar-day.future-date {
+    color: var(--islamic-border);
+    background: var(--islamic-cream);
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+.calendar-day.future-date:hover {
+    transform: none;
+    box-shadow: none;
+}
+
+/* Achievement Icons with Islamic styling */
+.achievement-icon {
+    position: absolute;
+    top: 2px;
+    right: 2px;
+    font-size: 0.8rem;
+    opacity: 0.9;
+    filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.3));
+}
+
+[dir="rtl"] .achievement-icon {
+    right: auto;
+    left: 2px;
+}
+
+/* Report View with Islamic styling */
+.report-view {
+    background: var(--islamic-warm-white);
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 8px 25px rgba(139, 69, 19, 0.1);
+    border: 2px solid var(--islamic-border);
+    position: relative;
+}
+
+.report-view::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--islamic-gold) 0%, var(--islamic-golden) 50%, var(--islamic-gold) 100%);
+}
+
+.report-header {
+    background: linear-gradient(135deg, var(--islamic-cream) 0%, var(--islamic-light-gold) 100%);
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    border-bottom: 2px solid var(--islamic-border);
+}
+
+.report-title {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--islamic-dark-brown);
+    margin: 0;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.report-content {
+    padding: 1rem;
+    background: var(--islamic-warm-white);
+}
+
+.report-summary {
+    margin-bottom: 2rem;
+}
+
+.summary-card {
+    background: var(--islamic-cream);
+    border-radius: 12px;
+    padding: 1.5rem;
+    border-left: 4px solid var(--islamic-golden);
+    box-shadow: 0 4px 15px rgba(139, 69, 19, 0.1);
+    position: relative;
+}
+
+.summary-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--islamic-gold) 0%, var(--islamic-golden) 100%);
+}
+
+[dir="rtl"] .summary-card {
+    border-left: none;
+    border-right: 4px solid var(--islamic-golden);
+}
+
+.summary-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--islamic-dark-brown);
+    margin: 0 0 1rem 0;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+
+.summary-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+}
+
+.summary-stat {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 0.5rem;
+    background: var(--islamic-warm-white);
+    border-radius: 8px;
+    border: 1px solid var(--islamic-border);
+}
+
+.stat-value {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--islamic-dark-brown);
+    margin-bottom: 0.25rem;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.stat-label {
+    font-size: 0.8rem;
+    color: var(--islamic-brown);
+    font-weight: 500;
+}
+
+.report-weeks {
+    margin-top: 2rem;
+}
+
+.weeks-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--islamic-dark-brown);
+    margin: 0 0 1rem 0;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+
+.weeks-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.week-card {
+    background: var(--islamic-cream);
+    border-radius: 12px;
+    padding: 1rem;
+    border-left: 4px solid var(--islamic-golden);
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(139, 69, 19, 0.1);
+    position: relative;
+}
+
+.week-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--islamic-gold) 0%, var(--islamic-golden) 100%);
+}
+
+[dir="rtl"] .week-card {
+    border-left: none;
+    border-right: 4px solid var(--islamic-golden);
+}
+
+.week-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(139, 69, 19, 0.2);
+}
+
+.week-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.5rem;
+}
+
+.week-date {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--islamic-dark-brown);
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.week-progress {
+    font-size: 0.9rem;
+    color: var(--islamic-golden);
+    font-weight: 500;
+}
+
+.week-stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+}
+
+.week-stat {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 0.25rem;
+    background: var(--islamic-warm-white);
+    border-radius: 6px;
+    border: 1px solid var(--islamic-border);
+}
+
+.week-stat-value {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--islamic-dark-brown);
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.week-stat-label {
+    font-size: 0.7rem;
+    color: var(--islamic-brown);
+    margin-top: 0.25rem;
+    font-weight: 500;
+}
+
+.week-achievements {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+    justify-content: center;
+}
+
+.achievement-badge {
+    font-size: 1.2rem;
+    opacity: 0.9;
+    filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.3));
+}
+
+/* Daily Log View with Islamic styling */
+.daily-log-view {
+    background: var(--islamic-warm-white);
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 8px 25px rgba(139, 69, 19, 0.1);
+    border: 2px solid var(--islamic-border);
+    position: relative;
+}
+
+.daily-log-view::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--islamic-gold) 0%, var(--islamic-golden) 50%, var(--islamic-gold) 100%);
+}
+
+.log-header {
+    background: linear-gradient(135deg, var(--islamic-cream) 0%, var(--islamic-light-gold) 100%);
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    border-bottom: 2px solid var(--islamic-border);
+}
+
+.back-btn {
+    background: var(--islamic-brown);
+    color: var(--islamic-warm-white);
+    border: 2px solid var(--islamic-gold);
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1.2rem;
+    transition: all 0.3s ease;
+    font-weight: 600;
+}
+
+.back-btn:hover {
+    background: var(--islamic-dark-brown);
+    transform: scale(1.05);
+    box-shadow: 0 4px 12px rgba(139, 69, 19, 0.3);
+}
+
+.log-date {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--islamic-dark-brown);
+    margin: 0;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+/* Prayer Sections with Islamic styling */
+.prayer-sections {
+    padding: 1rem;
+    background: var(--islamic-warm-white);
+}
+
+.prayer-section {
+    margin-bottom: 1.5rem;
+    padding: 1rem;
+    background: var(--islamic-cream);
+    border-radius: 12px;
+    border-left: 4px solid var(--islamic-golden);
+    box-shadow: 0 4px 15px rgba(139, 69, 19, 0.1);
+    position: relative;
+}
+
+.prayer-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--islamic-gold) 0%, var(--islamic-golden) 100%);
+}
+
+[dir="rtl"] .prayer-section {
+    border-left: none;
+    border-right: 4px solid var(--islamic-golden);
+}
+
+.prayer-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--islamic-dark-brown);
+    margin-bottom: 0.5rem;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+
+.prayer-options {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.prayer-option {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    cursor: pointer;
+    padding: 0.5rem;
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+    background: var(--islamic-warm-white);
+    border: 1px solid var(--islamic-border);
+}
+
+.prayer-option:hover {
+    background: var(--islamic-light-gold);
+    transform: translateX(2px);
+}
+
+.prayer-option input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    accent-color: var(--islamic-golden);
+}
+
+.option-text {
+    font-size: 0.95rem;
+    color: var(--islamic-text);
+    font-weight: 500;
+}
+
+.no-sunnah {
+    color: var(--islamic-brown);
+    font-style: italic;
+    font-size: 0.9rem;
+    opacity: 0.8;
+}
+
+/* Qiyam Input with Islamic styling */
+.qiyam-input {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 0.5rem;
+}
+
+.qiyam-label {
+    font-size: 0.95rem;
+    color: var(--islamic-text);
+    font-weight: 500;
+}
+
+.qiyam-input-field {
+    width: 80px;
+    padding: 0.5rem;
+    border: 2px solid var(--islamic-border);
+    border-radius: 8px;
+    font-size: 1rem;
+    text-align: center;
+    transition: border-color 0.3s ease;
+    background: var(--islamic-warm-white);
+    color: var(--islamic-text);
+    font-weight: 500;
+}
+
+.qiyam-input-field:focus {
+    outline: none;
+    border-color: var(--islamic-golden);
+    box-shadow: 0 0 8px rgba(218, 165, 32, 0.3);
+}
+
+/* Log Actions with Islamic styling */
+.log-actions {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+    padding: 1rem;
+    background: var(--islamic-cream);
+    border-radius: 12px;
+    border: 1px solid var(--islamic-border);
+}
+
+.log-actions .action-btn {
+    flex: 1;
+}
+
+/* Save Button with Islamic styling */
+.save-btn {
+    background: linear-gradient(135deg, var(--islamic-brown) 0%, var(--islamic-dark-brown) 100%);
+    color: var(--islamic-warm-white);
+    border: 2px solid var(--islamic-gold);
+    padding: 1rem 2rem;
+    border-radius: 10px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: 100%;
+    box-shadow: 0 4px 15px rgba(139, 69, 19, 0.3);
+}
+
+.save-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(139, 69, 19, 0.4);
+}
+
+.save-btn:active {
+    transform: translateY(0);
+}
+
+/* Toast Notification with Islamic styling */
+.toast {
+    position: fixed;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--islamic-dark-brown);
+    color: var(--islamic-warm-white);
+    padding: 1rem 2rem;
+    border-radius: 10px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    z-index: 1000;
+    box-shadow: 0 8px 25px rgba(139, 69, 19, 0.3);
+    animation: slideUp 0.3s ease;
+    border: 2px solid var(--islamic-gold);
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateX(-50%) translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0);
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 480px) {
+    .header {
+        padding: 0.75rem;
+    }
+    
+    .app-title {
+        font-size: 1.3rem;
+    }
+    
+    .main-content {
+        padding: 0.75rem;
+    }
+    
+    .calendar-header {
+        padding: 0.75rem;
+    }
+    
+    .month-title {
+        font-size: 1.1rem;
+    }
+    
+    .calendar-grid {
+        padding: 0.75rem;
+    }
+    
+    .prayer-sections {
+        padding: 0.75rem;
+    }
+    
+    .prayer-section {
+        padding: 0.75rem;
+        margin-bottom: 1rem;
+    }
+}
+
+/* Dark Mode Support with Islamic colors */
+.dark-mode {
+    --bg-primary: #1A1A1A;
+    --bg-secondary: #2D2D2D;
+    --bg-tertiary: #3A3A3A;
+    --text-primary: #FFFFFF;
+    --text-secondary: #E0E0E0;
+    --border-color: #8B4513;
+    --accent-color: #DAA520;
+    --success-color: #4CAF50;
+    --warning-color: #FF9800;
+    --error-color: #F44336;
+}
+
+.dark-mode body {
+    background: linear-gradient(135deg, #1A1A1A 0%, #2D2D2D 100%);
+    color: var(--text-primary);
+}
+
+.dark-mode body::before {
+    background-image: 
+        radial-gradient(circle at 20% 80%, rgba(218, 165, 32, 0.15) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(139, 69, 19, 0.15) 0%, transparent 50%),
+        radial-gradient(circle at 40% 40%, rgba(212, 175, 55, 0.08) 0%, transparent 50%);
+}
+
+.dark-mode #app {
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.3);
+}
+
+.dark-mode .header {
+    background: linear-gradient(135deg, #3A3A3A 0%, #2D2D2D 100%);
+    color: var(--text-primary);
+    border-bottom-color: var(--accent-color);
+}
+
+.dark-mode .app-title {
+    color: var(--text-primary);
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.dark-mode .theme-toggle,
+.dark-mode .language-toggle {
+    background: var(--bg-tertiary);
+    color: var(--accent-color);
+    border-color: var(--accent-color);
+}
+
+.dark-mode .theme-toggle:hover,
+.dark-mode .language-toggle:hover {
+    background: var(--accent-color);
+    color: var(--bg-primary);
+}
+
+.dark-mode .dashboard-view,
+.dark-mode .calendar-view,
+.dark-mode .daily-log-view,
+.dark-mode .report-view {
+    background: var(--bg-secondary);
+    color: var(--text-primary);
+    border-color: var(--border-color);
+}
+
+.dark-mode .dashboard-header,
+.dark-mode .calendar-header,
+.dark-mode .log-header,
+.dark-mode .report-header {
+    background: var(--bg-tertiary);
+    border-bottom-color: var(--border-color);
+}
+
+.dark-mode .dashboard-title,
+.dark-mode .month-title,
+.dark-mode .log-date,
+.dark-mode .report-title,
+.dark-mode .summary-title,
+.dark-mode .weeks-title,
+.dark-mode .prayer-title {
+    color: var(--text-primary);
+}
+
+.dark-mode .weeks-title {
+    color: var(--text-primary);
+    background: var(--bg-secondary);
+    border-bottom: 2px solid var(--accent-color);
+    padding: 10px 0;
+    margin-bottom: 15px;
+}
+
+.dark-mode .summary-card,
+.dark-mode .prayer-section,
+.dark-mode .week-card {
+    background: var(--bg-tertiary);
+    border-left-color: var(--accent-color);
+    color: var(--text-primary);
+}
+
+.dark-mode [dir="rtl"] .summary-card,
+.dark-mode [dir="rtl"] .prayer-section,
+.dark-mode [dir="rtl"] .week-card {
+    border-left: none;
+    border-right-color: var(--accent-color);
+}
+
+.dark-mode .option-text,
+.dark-mode .stat-label,
+.dark-mode .progress-label,
+.dark-mode .week-stat-label,
+.dark-mode .stat-number,
+.dark-mode .stat-value,
+.dark-mode .week-stat-value {
+    color: var(--text-primary);
+}
+
+/* Fix summary stats text color in dark mode */
+.dark-mode .summary-stat .stat-value,
+.dark-mode .summary-stat .stat-label {
+    color: var(--text-primary);
+}
+
+/* Make text dark in dark mode for better readability */
+.dark-mode .week-stat .week-stat-value,
+.dark-mode .week-stat .week-stat-label,
+.dark-mode .summary-stat .stat-value,
+.dark-mode .summary-stat .stat-label,
+.dark-mode .stat-item .stat-number,
+.dark-mode .stat-item .stat-label {
+    color: var(--islamic-dark-brown);
+}
+
+.dark-mode .progress-text span:first-child {
+    color: var(--accent-color);
+}
+
+.dark-mode .progress-ring-bg {
+    stroke: var(--bg-tertiary);
+}
+
+.dark-mode .progress-ring-fill {
+    stroke: var(--accent-color);
+}
+
+.dark-mode .qiyam-input-field {
+    background: var(--bg-tertiary);
+    border-color: var(--border-color);
+    color: var(--text-primary);
+}
+
+.dark-mode .qiyam-input-field:focus {
+    border-color: var(--accent-color);
+    box-shadow: 0 0 0 2px rgba(218, 165, 32, 0.2);
+}
+
+.dark-mode .qiyam-label {
+    color: var(--text-primary);
+}
+
+.dark-mode .action-btn {
+    background: linear-gradient(135deg, #3A3A3A 0%, #2D2D2D 100%);
+    color: var(--text-primary);
+    border-color: var(--border-color);
+}
+
+.dark-mode .action-btn.primary {
+    background: linear-gradient(135deg, #3A3A3A 0%, #2D2D2D 100%);
+    color: var(--text-primary);
+    border-color: var(--accent-color);
+}
+
+.dark-mode .action-btn.primary:hover {
+    background: var(--accent-color);
+    color: var(--bg-primary);
+    border-color: var(--accent-color);
+}
+
+.dark-mode .action-btn.secondary {
+    background: linear-gradient(135deg, #3A3A3A 0%, #2D2D2D 100%);
+    color: var(--accent-color);
+    border-color: var(--accent-color);
+}
+
+.dark-mode .action-btn.secondary:hover {
+    background: var(--accent-color);
+    color: var(--bg-primary);
+}
+
+.dark-mode .save-btn {
+    background: linear-gradient(135deg, #3A3A3A 0%, #2D2D2D 100%);
+    color: var(--text-primary);
+    border-color: var(--accent-color);
+}
+
+.dark-mode .save-btn:hover {
+    background: var(--accent-color);
+    color: var(--bg-primary);
+    border-color: var(--accent-color);
+}
+
+.dark-mode .nav-btn {
+    background: var(--bg-tertiary);
+    color: var(--text-primary);
+    border-color: var(--border-color);
+}
+
+.dark-mode .nav-btn:hover {
+    background: var(--accent-color);
+    color: var(--bg-primary);
+}
+
+.dark-mode .calendar-day {
+    background: var(--bg-tertiary);
+    color: var(--text-primary);
+    border-color: var(--border-color);
+}
+
+.dark-mode .calendar-day:hover {
+    background: var(--accent-color);
+    color: var(--bg-primary);
+}
+
+.dark-mode .calendar-day.today {
+    background: var(--accent-color);
+    color: var(--bg-primary);
+    border-color: var(--accent-color);
+}
+
+.dark-mode .calendar-day.other-month {
+    color: var(--text-secondary);
+    opacity: 0.5;
+}
+
+.dark-mode .calendar-day.future-date {
+    opacity: 0.3;
+    color: var(--text-secondary);
+}
+
+.dark-mode .weekday {
+    color: var(--text-secondary);
+    background: var(--bg-tertiary);
+}
+
+.dark-mode .week-header {
+    background: var(--bg-tertiary);
+    color: var(--text-primary);
+}
+
+.dark-mode .week-date {
+    color: var(--text-secondary);
+}
+
+.dark-mode .week-progress {
+    color: var(--accent-color);
+}
+
+.dark-mode .week-stats-grid {
+    background: var(--bg-secondary);
+}
+
+.dark-mode .no-sunnah {
+    color: var(--text-secondary);
+    background: var(--bg-secondary);
+}
+
+.dark-mode .prayer-option:hover {
+    background: var(--bg-secondary);
+}
+
+.dark-mode .prayer-option input[type="checkbox"]:checked + .option-text {
+    color: var(--accent-color);
+}
+
+.dark-mode .toast {
+    background: var(--bg-tertiary);
+    color: var(--text-primary);
+    border-color: var(--accent-color);
+}
+
+.dark-mode .achievement-badge {
+    background: var(--bg-secondary);
+    border-color: var(--accent-color);
+}
+
+/* Animation Classes */
+.fade-in {
+    animation: fadeIn 0.3s ease-in;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Achievement Level Colors with Islamic theme */
+.achievement-golden {
+    color: var(--islamic-gold);
+    text-shadow: 0 0 8px rgba(218, 165, 32, 0.6);
+}
+
+.achievement-full {
+    color: #8FBC8F;
+    text-shadow: 0 0 8px rgba(143, 188, 143, 0.6);
+}
+
+.achievement-growing {
+    color: #90EE90;
+    text-shadow: 0 0 8px rgba(144, 238, 144, 0.6);
+}
+
+.achievement-silent {
+    color: var(--islamic-border);
+    text-shadow: 0 0 8px rgba(210, 180, 140, 0.6);
+}
+    </style>
+</head>
+<body>
+    <div id="app">
+        <!-- Header -->
+        <header class="header">
+            <h1 class="app-title" data-en="Sunnah Tracker" data-ar="تتبع السنن الرواتب">Sunnah Tracker</h1>
+            <div class="header-controls">
+                <button id="darkModeToggle" class="theme-toggle" title="Toggle Theme">
+                    🌙
+                </button>
+                <button id="languageToggle" class="language-toggle" title="Toggle Language">
+                    🌐
+                </button>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Dashboard View -->
+            <div id="dashboardView" class="dashboard-view">
+                <div class="dashboard-header">
+                    <h2 class="dashboard-title" data-en="This Week's Progress" data-ar="تقدم هذا الأسبوع">This Week's Progress</h2>
+                </div>
+                <div class="dashboard-content">
+                    <div class="progress-circle">
+                        <svg class="progress-ring" width="120" height="120">
+                            <circle class="progress-ring-bg" cx="60" cy="60" r="54" stroke-width="8"></circle>
+                            <circle class="progress-ring-fill" cx="60" cy="60" r="54" stroke-width="8"></circle>
+                        </svg>
+                        <div class="progress-text">
+                            <span id="progressPercentage">0%</span>
+                            <span class="progress-label" data-en="Complete" data-ar="مكتمل">Complete</span>
+                        </div>
+                    </div>
+                    <div class="week-stats">
+                        <div class="stat-item">
+                            <span class="stat-number" id="completedDays">0</span>
+                            <span class="stat-label" data-en="Days Completed" data-ar="أيام مكتملة">Days Completed</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number" id="totalDays">7</span>
+                            <span class="stat-label" data-en="Total Days" data-ar="إجمالي الأيام">Total Days</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="dashboard-actions">
+                    <button id="viewCalendar" class="action-btn primary" data-en="View Calendar" data-ar="سجل اليوم">View Calendar</button>
+                    <button id="viewReport" class="action-btn secondary" data-en="View Report" data-ar="عرض التقرير">View Report</button>
+                </div>
+            </div>
+
+            <!-- Calendar View -->
+            <div id="calendarView" class="calendar-view" style="display: none;">
+                <div class="calendar-header">
+                    <button id="backToDashboardFromCalendar" class="back-btn" data-en="‹ Dashboard" data-ar="‹ الرئيسية">‹ Dashboard</button>
+                    <button id="prevMonth" class="nav-btn">‹</button>
+                    <h2 id="currentMonth" class="month-title" data-en="August 2024" data-ar="أغسطس ٢٠٢٤">August 2024</h2>
+                    <button id="nextMonth" class="nav-btn">›</button>
+                </div>
+                
+                <div class="calendar-grid">
+                    <div class="weekdays">
+                        <div class="weekday" data-en="Sun" data-ar="أحد">Sun</div>
+                        <div class="weekday" data-en="Mon" data-ar="اثن">Mon</div>
+                        <div class="weekday" data-en="Tue" data-ar="ثلاث">Tue</div>
+                        <div class="weekday" data-en="Wed" data-ar="أربع">Wed</div>
+                        <div class="weekday" data-en="Thu" data-ar="خميس">Thu</div>
+                        <div class="weekday" data-en="Fri" data-ar="جمعة">Fri</div>
+                        <div class="weekday" data-en="Sat" data-ar="سبت">Sat</div>
+                    </div>
+                    <div id="calendarDays" class="calendar-days"></div>
+                </div>
+            </div>
+
+            <!-- Report View -->
+            <div id="reportView" class="report-view" style="display: none;">
+                <div class="report-header">
+                    <button id="backToDashboard" class="back-btn">‹</button>
+                    <h2 class="report-title" data-en="Prayer Report" data-ar="تقرير الصلاة">Prayer Report</h2>
+                </div>
+                
+                <div class="report-content">
+                    <div class="report-summary">
+                        <div class="summary-card">
+                            <h3 class="summary-title" data-en="Overall Progress" data-ar="التقدم العام">Overall Progress</h3>
+                            <div class="summary-stats">
+                                <div class="summary-stat">
+                                    <span class="stat-value" id="totalDaysTracked">0</span>
+                                    <span class="stat-label" data-en="Days Tracked" data-ar="أيام متتبعة">Days Tracked</span>
+                                </div>
+                                <div class="summary-stat">
+                                    <span class="stat-value" id="totalPrayers">0</span>
+                                    <span class="stat-label" data-en="Prayers Completed" data-ar="ركعات رواتب">Prayers Completed</span>
+                                </div>
+                                <div class="summary-stat">
+                                    <span class="stat-value" id="totalQiyam">0</span>
+                                    <span class="stat-label" data-en="Qiyam Rak'ahs" data-ar="ركعات قيام">Qiyam Rak'ahs</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="report-weeks">
+                        <h3 class="weeks-title" data-en="Weekly Breakdown" data-ar="التفصيل الأسبوعي">Weekly Breakdown</h3>
+                        <div id="weeksList" class="weeks-list">
+                            <!-- Weeks will be populated by JavaScript -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Daily Log View -->
+            <div id="dailyLogView" class="daily-log-view" style="display: none;">
+                <div class="log-header">
+                    <button id="backToCalendar" class="back-btn" data-en="‹ Back" data-ar="‹ رجوع">‹ Back</button>
+                    <h2 id="logDate" class="log-date">August 3, 2024</h2>
+                </div>
+                
+                <div class="prayer-sections">
+                    <!-- Fajr Section -->
+                    <div class="prayer-section">
+                        <h3 class="prayer-title" data-en="Fajr" data-ar="الفجر">Fajr</h3>
+                        <div class="prayer-options">
+                            <label class="prayer-option">
+                                <input type="checkbox" data-prayer="fajr-before" data-rakahs="2">
+                                <span class="option-text" data-en="2 Rak'ahs before" data-ar="ركعتان قبل">2 Rak'ahs before</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Dhuhr Section -->
+                    <div class="prayer-section">
+                        <h3 class="prayer-title" data-en="Dhuhr" data-ar="الظهر">Dhuhr</h3>
+                        <div class="prayer-options">
+                            <label class="prayer-option">
+                                <input type="checkbox" data-prayer="dhuhr-before-1" data-rakahs="2">
+                                <span class="option-text" data-en="2 Rak'ahs before (1st set)" data-ar="ركعتان قبل (المجموعة الأولى)">2 Rak'ahs before (1st set)</span>
+                            </label>
+                            <label class="prayer-option">
+                                <input type="checkbox" data-prayer="dhuhr-before-2" data-rakahs="2">
+                                <span class="option-text" data-en="2 Rak'ahs before (2nd set)" data-ar="ركعتان قبل (المجموعة الثانية)">2 Rak'ahs before (2nd set)</span>
+                            </label>
+                            <label class="prayer-option">
+                                <input type="checkbox" data-prayer="dhuhr-after" data-rakahs="2">
+                                <span class="option-text" data-en="2 Rak'ahs after" data-ar="ركعتان بعد">2 Rak'ahs after</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Asr Section -->
+                    <div class="prayer-section">
+                        <h3 class="prayer-title" data-en="Asr" data-ar="العصر">Asr</h3>
+                        <div class="prayer-options">
+                            <span class="no-sunnah" data-en="No Sunnah Rawatib" data-ar="لا توجد سنن راتبة">No Sunnah Rawatib</span>
+                        </div>
+                    </div>
+
+                    <!-- Maghrib Section -->
+                    <div class="prayer-section">
+                        <h3 class="prayer-title" data-en="Maghrib" data-ar="المغرب">Maghrib</h3>
+                        <div class="prayer-options">
+                            <label class="prayer-option">
+                                <input type="checkbox" data-prayer="maghrib-after" data-rakahs="2">
+                                <span class="option-text" data-en="2 Rak'ahs after" data-ar="ركعتان بعد">2 Rak'ahs after</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Isha Section -->
+                    <div class="prayer-section">
+                        <h3 class="prayer-title" data-en="Isha" data-ar="العشاء">Isha</h3>
+                        <div class="prayer-options">
+                            <label class="prayer-option">
+                                <input type="checkbox" data-prayer="isha-after" data-rakahs="2">
+                                <span class="option-text" data-en="2 Rak'ahs after" data-ar="ركعتان بعد">2 Rak'ahs after</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Qiyam Section -->
+                    <div class="prayer-section">
+                        <h3 class="prayer-title" data-en="Qiyam Al-Layl" data-ar="قيام الليل">Qiyam Al-Layl</h3>
+                        <div class="qiyam-input">
+                            <label for="qiyamRakahs" class="qiyam-label" data-en="Number of Rak'ahs:" data-ar="عدد الركعات:">Number of Rak'ahs:</label>
+                            <input type="number" id="qiyamRakahs" min="0" max="20" placeholder="0" class="qiyam-input-field">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="log-actions">
+                    <button id="shareDay" class="action-btn secondary" data-en="Share Day" data-ar="مشاركة اليوم">Share Day</button>
+                    <button id="saveLog" class="save-btn" data-en="Save Day" data-ar="حفظ اليوم">Save Day</button>
+                </div>
+            </div>
+        </main>
+
+        <!-- Toast Notification -->
+        <div id="toast" class="toast" style="display: none;">
+            <span id="toastMessage"></span>
+        </div>
+    </div>
+
+    <script>
+// Sunnah Tracker App - Main JavaScript File
+
+class SunnahTracker {
+    constructor() {
+        this.currentLanguage = localStorage.getItem('language') || 'en';
+        this.currentTheme = localStorage.getItem('theme') || 'system';
+        this.currentDate = new Date();
+        this.selectedDate = new Date();
+        this.prayerData = this.loadPrayerData();
+        this.currentView = 'dashboard'; // dashboard, calendar, daily, report
+        this.previousView = 'dashboard'; // Track previous view for back navigation
+        
+        this.initializeApp();
+    }
+
+    initializeApp() {
+        this.setupEventListeners();
+        this.updateLanguage();
+        this.updateTheme();
+        this.renderDashboard();
+        this.showDashboardView();
+        this.registerServiceWorker();
+    }
+
+    setupEventListeners() {
+        // Language toggle
+        document.getElementById('languageToggle').addEventListener('click', () => {
+            this.toggleLanguage();
+        });
+
+        // Theme toggle
+        document.getElementById('darkModeToggle').addEventListener('click', () => {
+            this.toggleTheme();
+        });
+
+        // Dashboard navigation
+        document.getElementById('viewCalendar').addEventListener('click', () => {
+            this.showCalendarView();
+        });
+
+        document.getElementById('viewReport').addEventListener('click', () => {
+            this.showReportView();
+        });
+
+        // Calendar navigation
+        document.getElementById('prevMonth').addEventListener('click', () => {
+            this.navigateMonth(-1);
+        });
+
+        document.getElementById('nextMonth').addEventListener('click', () => {
+            this.navigateMonth(1);
+        });
+
+        // Back buttons
+        document.getElementById('backToDashboard').addEventListener('click', () => {
+            this.showDashboardView();
+        });
+
+        document.getElementById('backToDashboardFromCalendar').addEventListener('click', () => {
+            this.showDashboardView();
+        });
+
+        document.getElementById('backToCalendar').addEventListener('click', () => {
+            // If we came from dashboard, go back to dashboard
+            // If we came from calendar, go back to calendar
+            if (this.previousView === 'dashboard') {
+                this.showDashboardView();
+            } else {
+                this.showCalendarView();
+            }
+        });
+
+        // Save prayer log
+        document.getElementById('saveLog').addEventListener('click', () => {
+            this.savePrayerLog();
+        });
+
+        // Share day
+        document.getElementById('shareDay').addEventListener('click', () => {
+            this.shareDay();
+        });
+    }
+
+    toggleLanguage() {
+        this.currentLanguage = this.currentLanguage === 'en' ? 'ar' : 'en';
+        localStorage.setItem('language', this.currentLanguage);
+        this.updateLanguage();
+        this.renderCalendar();
+        this.renderDashboard();
+        this.renderReport();
+        this.showToast(this.currentLanguage === 'en' ? 'Language changed to English' : 'تم تغيير اللغة إلى العربية');
+    }
+
+    toggleTheme() {
+        const themes = ['light', 'dark', 'system'];
+        const currentIndex = themes.indexOf(this.currentTheme);
+        const nextIndex = (currentIndex + 1) % themes.length;
+        this.currentTheme = themes[nextIndex];
+        localStorage.setItem('theme', this.currentTheme);
+        this.updateTheme();
+        
+        const messages = {
+            light: { en: 'Light theme enabled', ar: 'تم تفعيل الوضع الفاتح' },
+            dark: { en: 'Dark theme enabled', ar: 'تم تفعيل الوضع الداكن' },
+            system: { en: 'System theme enabled', ar: 'تم تفعيل وضع النظام' }
+        };
+        
+        this.showToast(messages[this.currentTheme][this.currentLanguage]);
+    }
+
+    updateLanguage() {
+        const isRTL = this.currentLanguage === 'ar';
+        document.documentElement.lang = this.currentLanguage;
+        document.documentElement.dir = isRTL ? 'rtl' : 'ltr';
+
+        // Update all elements with data attributes
+        const elements = document.querySelectorAll('[data-en][data-ar]');
+        elements.forEach(element => {
+            const text = this.currentLanguage === 'en' ? 
+                element.getAttribute('data-en') : 
+                element.getAttribute('data-ar');
+            element.textContent = text;
+        });
+
+        // Update back button text if we're in daily log view
+        if (this.currentView === 'daily') {
+            const backButton = document.getElementById('backToCalendar');
+            if (this.previousView === 'dashboard') {
+                backButton.textContent = this.currentLanguage === 'en' ? '‹ Dashboard' : '‹ الرئيسية';
+            } else {
+                backButton.textContent = this.currentLanguage === 'en' ? '‹ Calendar' : '‹ التقويم';
+            }
+        }
+
+        // Update month title
+        this.updateMonthTitle();
+    }
+
+    updateTheme() {
+        const themeToggle = document.getElementById('darkModeToggle');
+        // Keep moon icon consistent regardless of theme
+        themeToggle.textContent = '🌙';
+
+        let isDark = false;
+        if (this.currentTheme === 'dark') {
+            isDark = true;
+        } else if (this.currentTheme === 'system') {
+            isDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        }
+
+        document.documentElement.classList.toggle('dark-mode', isDark);
+    }
+
+    updateMonthTitle() {
+        const monthNames = {
+            en: [
+                'January', 'February', 'March', 'April', 'May', 'June',
+                'July', 'August', 'September', 'October', 'November', 'December'
+            ],
+            ar: [
+                'يناير', 'فبراير', 'مارس', 'أبريل', 'مايو', 'يونيو',
+                'يوليو', 'أغسطس', 'سبتمبر', 'أكتوبر', 'نوفمبر', 'ديسمبر'
+            ]
+        };
+
+        const month = monthNames[this.currentLanguage][this.currentDate.getMonth()];
+        const year = this.currentDate.getFullYear();
+        const yearAr = this.currentLanguage === 'ar' ? this.toArabicNumerals(year) : year;
+        
+        document.getElementById('currentMonth').textContent = 
+            this.currentLanguage === 'en' ? `${month} ${year}` : `${month} ${yearAr}`;
+    }
+
+    toArabicNumerals(num) {
+        const arabicNumerals = ['٠', '١', '٢', '٣', '٤', '٥', '٦', '٧', '٨', '٩'];
+        return num.toString().replace(/\d/g, d => arabicNumerals[d]);
+    }
+
+    navigateMonth(direction) {
+        this.currentDate.setMonth(this.currentDate.getMonth() + direction);
+        this.updateMonthTitle();
+        this.renderCalendar();
+    }
+
+    renderDashboard() {
+        const weekProgress = this.calculateWeekProgress();
+        const percentage = Math.round(weekProgress.percentage);
+        
+        // Update progress circle
+        const progressRing = document.querySelector('.progress-ring-fill');
+        const circumference = 2 * Math.PI * 54;
+        const offset = circumference - (percentage / 100) * circumference;
+        progressRing.style.strokeDashoffset = offset;
+        
+        document.getElementById('progressPercentage').textContent = `${percentage}%`;
+        document.getElementById('completedDays').textContent = weekProgress.completedDays;
+        document.getElementById('totalDays').textContent = weekProgress.totalDays;
+    }
+
+    calculateWeekProgress() {
+        const today = new Date();
+        const startOfWeek = new Date(today);
+        startOfWeek.setDate(today.getDate() - today.getDay());
+        
+        let completedDays = 0;
+        let totalDays = 0;
+        
+        for (let i = 0; i < 7; i++) {
+            const currentDate = new Date(startOfWeek);
+            currentDate.setDate(startOfWeek.getDate() + i);
+            
+            if (currentDate <= today) {
+                totalDays++;
+                const dateKey = this.formatDateKey(currentDate);
+                if (this.prayerData[dateKey]) {
+                    const achievement = this.calculateAchievement(this.prayerData[dateKey]);
+                    if (achievement.level !== 'silent') {
+                        completedDays++;
+                    }
+                }
+            }
+        }
+        
+        const percentage = totalDays > 0 ? (completedDays / totalDays) * 100 : 0;
+        return { completedDays, totalDays, percentage };
+    }
+
+    renderCalendar() {
+        const calendarDays = document.getElementById('calendarDays');
+        calendarDays.innerHTML = '';
+
+        const year = this.currentDate.getFullYear();
+        const month = this.currentDate.getMonth();
+        
+        const firstDay = new Date(year, month, 1);
+        const lastDay = new Date(year, month + 1, 0);
+        const startDate = new Date(firstDay);
+        startDate.setDate(startDate.getDate() - firstDay.getDay());
+
+        const today = new Date();
+        today.setHours(0, 0, 0, 0);
+
+        for (let i = 0; i < 42; i++) {
+            const currentDate = new Date(startDate);
+            currentDate.setDate(startDate.getDate() + i);
+
+            const dayElement = document.createElement('div');
+            dayElement.className = 'calendar-day';
+            dayElement.textContent = currentDate.getDate();
+
+            // Check if it's today
+            if (currentDate.getTime() === today.getTime()) {
+                dayElement.classList.add('today');
+            }
+
+            // Check if it's from another month
+            if (currentDate.getMonth() !== month) {
+                dayElement.classList.add('other-month');
+            }
+
+            // Check if it's a future date
+            if (currentDate > today) {
+                dayElement.classList.add('future-date');
+                dayElement.style.opacity = '0.3';
+                dayElement.style.cursor = 'not-allowed';
+            } else {
+                // Check if there's prayer data for this day
+                const dateKey = this.formatDateKey(currentDate);
+                if (this.prayerData[dateKey]) {
+                    dayElement.classList.add('has-data');
+                    const achievement = this.calculateAchievement(this.prayerData[dateKey]);
+                    const iconElement = document.createElement('span');
+                    iconElement.className = `achievement-icon achievement-${achievement.level}`;
+                    iconElement.textContent = achievement.icon;
+                    dayElement.appendChild(iconElement);
+                }
+
+                dayElement.addEventListener('click', () => {
+                    this.selectDate(currentDate);
+                });
+            }
+
+            calendarDays.appendChild(dayElement);
+        }
+    }
+
+    renderReport() {
+        const reportData = this.calculateReportData();
+        
+        // Update summary stats
+        document.getElementById('totalDaysTracked').textContent = reportData.totalDaysTracked;
+        document.getElementById('totalPrayers').textContent = reportData.totalPrayers;
+        document.getElementById('totalQiyam').textContent = reportData.totalQiyam;
+        
+        // Render weeks list
+        const weeksList = document.getElementById('weeksList');
+        weeksList.innerHTML = '';
+        
+        reportData.weeks.forEach(week => {
+            const weekCard = document.createElement('div');
+            weekCard.className = 'week-card';
+            
+            weekCard.innerHTML = `
+                <div class="week-header">
+                    <span class="week-date">${week.dateRange}</span>
+                    <span class="week-progress">${week.progress}%</span>
+                </div>
+                <div class="week-stats-grid">
+                    <div class="week-stat">
+                        <span class="week-stat-value">${week.daysCompleted}</span>
+                        <span class="week-stat-label" data-en="Days" data-ar="أيام">Days</span>
+                    </div>
+                    <div class="week-stat">
+                        <span class="week-stat-value">${week.prayersCompleted}</span>
+                        <span class="week-stat-label" data-en="Prayers" data-ar="ركعات">Prayers</span>
+                    </div>
+                    <div class="week-stat">
+                        <span class="week-stat-value">${week.qiyamRakahs}</span>
+                        <span class="week-stat-label" data-en="Qiyam" data-ar="قيام">Qiyam</span>
+                    </div>
+                    <div class="week-stat">
+                        <span class="week-stat-value">${week.goldenDays}</span>
+                        <span class="week-stat-label" data-en="Golden" data-ar="ذهبي">Golden</span>
+                    </div>
+                </div>
+                <div class="week-achievements">
+                    ${week.achievements.map(achievement => 
+                        `<span class="achievement-badge achievement-${achievement.level}">${achievement.icon}</span>`
+                    ).join('')}
+                </div>
+            `;
+            
+            weeksList.appendChild(weekCard);
+        });
+        
+        // Update language for new elements
+        this.updateLanguage();
+    }
+
+    calculateReportData() {
+        const allDates = Object.keys(this.prayerData).sort();
+        const weeks = {};
+        let totalPrayers = 0;
+        let totalQiyam = 0;
+        
+        allDates.forEach(dateKey => {
+            const date = new Date(dateKey);
+            const weekStart = new Date(date);
+            weekStart.setDate(date.getDate() - date.getDay());
+            const weekKey = this.formatDateKey(weekStart);
+            
+            if (!weeks[weekKey]) {
+                weeks[weekKey] = {
+                    startDate: weekStart,
+                    days: [],
+                    prayersCompleted: 0,
+                    qiyamRakahs: 0,
+                    goldenDays: 0,
+                    achievements: []
+                };
+            }
+            
+            const dayData = this.prayerData[dateKey];
+            const achievement = this.calculateAchievement(dayData);
+            
+            weeks[weekKey].days.push({
+                date: date,
+                data: dayData,
+                achievement: achievement
+            });
+            
+            // Count prayers
+            Object.values(dayData.prayers || {}).forEach(completed => {
+                if (completed) {
+                    weeks[weekKey].prayersCompleted += 2; // Each prayer is 2 rak'ahs
+                    totalPrayers += 2;
+                }
+            });
+            
+            // Count Qiyam
+            const qiyam = dayData.qiyam || 0;
+            weeks[weekKey].qiyamRakahs += qiyam;
+            totalQiyam += qiyam;
+            
+            // Count golden days
+            if (achievement.level === 'golden') {
+                weeks[weekKey].goldenDays++;
+            }
+            
+            weeks[weekKey].achievements.push(achievement);
+        });
+        
+        // Convert weeks object to array and calculate progress
+        const weeksArray = Object.values(weeks).map(week => {
+            const daysCompleted = week.days.length;
+            const progress = Math.round((daysCompleted / 7) * 100);
+            
+            const dateRange = this.currentLanguage === 'en' ?
+                `${week.startDate.toLocaleDateString('en-US', { month: 'short', day: 'numeric' })} - ${new Date(week.startDate.getTime() + 6 * 24 * 60 * 60 * 1000).toLocaleDateString('en-US', { month: 'short', day: 'numeric' })}` :
+                `${week.startDate.toLocaleDateString('ar-SA', { month: 'short', day: 'numeric' })} - ${new Date(week.startDate.getTime() + 6 * 24 * 60 * 60 * 1000).toLocaleDateString('ar-SA', { month: 'short', day: 'numeric' })}`;
+            
+            return {
+                ...week,
+                daysCompleted,
+                progress,
+                dateRange
+            };
+        }).sort((a, b) => b.startDate - a.startDate);
+        
+        return {
+            totalDaysTracked: allDates.length,
+            totalPrayers,
+            totalQiyam,
+            weeks: weeksArray
+        };
+    }
+
+    selectDate(date) {
+        const today = new Date();
+        today.setHours(0, 0, 0, 0);
+        
+        if (date > today) {
+            this.showToast(this.currentLanguage === 'en' ? 'Cannot log prayers for future dates' : 'لا يمكن تسجيل الصلوات للتواريخ المستقبلية');
+            return;
+        }
+        
+        this.selectedDate = new Date(date);
+        this.showDailyLogView();
+        this.loadPrayerLog();
+    }
+
+    showDashboardView() {
+        this.hideAllViews();
+        document.getElementById('dashboardView').style.display = 'block';
+        this.previousView = this.currentView;
+        this.currentView = 'dashboard';
+        this.renderDashboard();
+    }
+
+    showCalendarView() {
+        this.hideAllViews();
+        document.getElementById('calendarView').style.display = 'block';
+        this.previousView = this.currentView;
+        this.currentView = 'calendar';
+        this.renderCalendar();
+    }
+
+    showReportView() {
+        this.hideAllViews();
+        document.getElementById('reportView').style.display = 'block';
+        this.previousView = this.currentView;
+        this.currentView = 'report';
+        this.renderReport();
+    }
+
+    showDailyLogView() {
+        this.hideAllViews();
+        document.getElementById('dailyLogView').style.display = 'block';
+        this.previousView = this.currentView;
+        this.currentView = 'daily';
+        
+        // Update back button text based on previous view
+        const backButton = document.getElementById('backToCalendar');
+        if (this.previousView === 'dashboard') {
+            backButton.setAttribute('data-en', '‹ Dashboard');
+            backButton.setAttribute('data-ar', '‹ الرئيسية');
+            backButton.textContent = this.currentLanguage === 'en' ? '‹ Dashboard' : '‹ الرئيسية';
+        } else {
+            backButton.setAttribute('data-en', '‹ Calendar');
+            backButton.setAttribute('data-ar', '‹ التقويم');
+            backButton.textContent = this.currentLanguage === 'en' ? '‹ Calendar' : '‹ التقويم';
+        }
+        
+        const dateKey = this.formatDateKey(this.selectedDate);
+        const dateStr = this.selectedDate.toLocaleDateString(
+            this.currentLanguage === 'en' ? 'en-US' : 'ar-SA',
+            { 
+                year: 'numeric', 
+                month: 'long', 
+                day: 'numeric' 
+            }
+        );
+        
+        document.getElementById('logDate').textContent = dateStr;
+        document.getElementById('dailyLogView').classList.add('fade-in');
+    }
+
+    hideAllViews() {
+        document.getElementById('dashboardView').style.display = 'none';
+        document.getElementById('calendarView').style.display = 'none';
+        document.getElementById('dailyLogView').style.display = 'none';
+        document.getElementById('reportView').style.display = 'none';
+    }
+
+    loadPrayerLog() {
+        const dateKey = this.formatDateKey(this.selectedDate);
+        const dayData = this.prayerData[dateKey] || {};
+
+        // Reset all checkboxes
+        document.querySelectorAll('input[type="checkbox"]').forEach(checkbox => {
+            checkbox.checked = false;
+        });
+
+        // Check the ones that were saved
+        Object.keys(dayData.prayers || {}).forEach(prayer => {
+            const checkbox = document.querySelector(`input[data-prayer="${prayer}"]`);
+            if (checkbox) {
+                checkbox.checked = dayData.prayers[prayer];
+            }
+        });
+
+        // Set Qiyam value
+        document.getElementById('qiyamRakahs').value = dayData.qiyam || 0;
+    }
+
+    savePrayerLog() {
+        const dateKey = this.formatDateKey(this.selectedDate);
+        const prayers = {};
+        
+        // Collect all prayer checkboxes
+        document.querySelectorAll('input[type="checkbox"]').forEach(checkbox => {
+            prayers[checkbox.getAttribute('data-prayer')] = checkbox.checked;
+        });
+
+        // Get Qiyam value
+        const qiyam = parseInt(document.getElementById('qiyamRakahs').value) || 0;
+
+        // Save to prayer data
+        this.prayerData[dateKey] = {
+            prayers,
+            qiyam,
+            date: this.selectedDate.toISOString()
+        };
+
+        this.savePrayerData();
+        this.showCalendarView();
+        this.renderCalendar();
+        this.showToast(this.currentLanguage === 'en' ? 'Day saved successfully!' : 'تم حفظ اليوم بنجاح!');
+    }
+
+    shareDay() {
+        const dateKey = this.formatDateKey(this.selectedDate);
+        const dayData = this.prayerData[dateKey];
+        
+        if (!dayData) {
+            this.showToast(this.currentLanguage === 'en' ? 'No data to share for this day' : 'لا توجد بيانات لمشاركتها لهذا اليوم');
+            return;
+        }
+        
+        const achievement = this.calculateAchievement(dayData);
+        const dateStr = this.selectedDate.toLocaleDateString(
+            this.currentLanguage === 'en' ? 'en-US' : 'ar-SA',
+            { 
+                year: 'numeric', 
+                month: 'long', 
+                day: 'numeric' 
+            }
+        );
+        
+        // Check if we're on mobile (has touch screen and small viewport)
+        const isMobile = 'ontouchstart' in window && window.innerWidth <= 768;
+        
+        if (isMobile && navigator.share) {
+            // Mobile: use native share
+            const shareText = this.currentLanguage === 'en' ?
+                `📅 ${dateStr}\n\n🌟 ${achievement.level.toUpperCase()} DAY 🌟\n\nPrayers completed: ${Object.values(dayData.prayers || {}).filter(Boolean).length * 2} rak'ahs\nQiyam: ${dayData.qiyam || 0} rak'ahs\n\n#SunnahTracker` :
+                `📅 ${dateStr}\n\n🌟 ${achievement.icon} ${achievement.level === 'golden' ? 'يوم ذهبي' : achievement.level === 'full' ? 'يوم مكتمل' : achievement.level === 'growing' ? 'يوم متقدم' : 'يوم فارغ'} 🌟\n\nالصلوات المكتملة: ${Object.values(dayData.prayers || {}).filter(Boolean).length * 2} ركعة\nالقيام: ${dayData.qiyam || 0} ركعة\n\n#تتبع_السنن`;
+            
+            navigator.share({
+                title: this.currentLanguage === 'en' ? 'Sunnah Tracker Progress' : 'تقدم تتبع السنن',
+                text: shareText
+            });
+        } else {
+            // Desktop: create and download image
+            this.createAndDownloadImage(dateStr, achievement, dayData);
+        }
+    }
+
+    createAndDownloadImage(dateStr, achievement, dayData) {
+        // Create a canvas element
+        const canvas = document.createElement('canvas');
+        const ctx = canvas.getContext('2d');
+        
+        // Set canvas size
+        canvas.width = 600;
+        canvas.height = 400;
+        
+        // Background gradient
+        const gradient = ctx.createLinearGradient(0, 0, 0, canvas.height);
+        gradient.addColorStop(0, '#F5F5DC');
+        gradient.addColorStop(1, '#F4E4BC');
+        ctx.fillStyle = gradient;
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+        
+        // Add Islamic pattern overlay
+        ctx.fillStyle = 'rgba(218, 165, 32, 0.1)';
+        for (let i = 0; i < 10; i++) {
+            ctx.beginPath();
+            ctx.arc(Math.random() * canvas.width, Math.random() * canvas.height, 50, 0, 2 * Math.PI);
+            ctx.fill();
+        }
+        
+        // Border
+        ctx.strokeStyle = '#8B4513';
+        ctx.lineWidth = 4;
+        ctx.strokeRect(2, 2, canvas.width - 4, canvas.height - 4);
+        
+        // Title with Islamic styling
+        ctx.fillStyle = '#8B4513';
+        ctx.font = 'bold 32px Inter, Arial';
+        ctx.textAlign = 'center';
+        ctx.fillText(this.currentLanguage === 'en' ? 'Sunnah Tracker Progress' : 'تقدم تتبع السنن', canvas.width / 2, 60);
+        
+        // Date with more padding
+        ctx.font = '24px Inter, Arial';
+        ctx.fillStyle = '#654321';
+        ctx.fillText(dateStr, canvas.width / 2, 110);
+        
+        // Add decorative line separator
+        ctx.strokeStyle = '#DAA520';
+        ctx.lineWidth = 2;
+        ctx.beginPath();
+        ctx.moveTo(100, 130);
+        ctx.lineTo(500, 130);
+        ctx.stroke();
+        
+        // Achievement
+        const achievementText = this.currentLanguage === 'en' ? 
+            `${achievement.icon} ${achievement.level.toUpperCase()} DAY` :
+            `${achievement.icon} ${achievement.level === 'golden' ? 'يوم ذهبي' : achievement.level === 'full' ? 'يوم مكتمل' : achievement.level === 'growing' ? 'يوم متقدم' : 'يوم فارغ'}`;
+            
+        ctx.font = 'bold 36px Inter, Arial';
+        ctx.textAlign = 'center';
+        
+        // Add white outline before shadow
+        ctx.strokeStyle = '#FFFFFF';
+        ctx.lineWidth = 6;
+        ctx.strokeText(achievementText, canvas.width / 2, 200);
+        
+        // Add shadow
+        ctx.shadowColor = 'rgba(0, 0, 0, 0.4)';
+        ctx.shadowBlur = 6;
+        ctx.shadowOffsetX = 3;
+        ctx.shadowOffsetY = 3;
+        
+        // Main text
+        ctx.fillStyle = '#DAA520';
+        ctx.fillText(achievementText, canvas.width / 2, 200);
+        
+        // Add decorative line separator after achievement
+        ctx.strokeStyle = '#DAA520';
+        ctx.lineWidth = 2;
+        ctx.beginPath();
+        ctx.moveTo(100, 220);
+        ctx.lineTo(500, 220);
+        ctx.stroke();
+        
+        // Reset shadow
+        ctx.shadowColor = 'transparent';
+        ctx.shadowBlur = 0;
+        ctx.shadowOffsetX = 0;
+        ctx.shadowOffsetY = 0;
+        
+        // Stats with better fonts and more padding
+        ctx.font = '20px Inter, Arial';
+        ctx.fillStyle = '#654321';
+        ctx.textAlign = 'left';
+        
+        const prayersCompleted = Object.values(dayData.prayers || {}).filter(Boolean).length * 2;
+        const qiyamRakahs = dayData.qiyam || 0;
+        
+        ctx.fillText(this.currentLanguage === 'en' ? 
+            `Prayers completed: ${prayersCompleted} rak'ahs` : 
+            `الصلوات المكتملة: ${prayersCompleted} ركعة`, 50, 260);
+        
+        ctx.fillText(this.currentLanguage === 'en' ? 
+            `Qiyam: ${qiyamRakahs} rak'ahs` : 
+            `القيام: ${qiyamRakahs} ركعة`, 50, 290);
+        
+        // Footer
+        ctx.font = '16px Inter, Arial';
+        ctx.fillStyle = '#8B4513';
+        ctx.textAlign = 'center';
+        ctx.fillText('#SunnahTracker', canvas.width / 2, 350);
+        
+        // Download the image
+        const link = document.createElement('a');
+        link.download = `sunnah-progress-${this.formatDateKey(this.selectedDate)}.png`;
+        link.href = canvas.toDataURL();
+        link.click();
+        
+        this.showToast(this.currentLanguage === 'en' ? 'Progress image downloaded!' : 'تم تحميل صورة التقدم!');
+    }
+
+    calculateAchievement(dayData) {
+        const requiredPrayers = [
+            'fajr-before',
+            'dhuhr-before-1',
+            'dhuhr-before-2', 
+            'dhuhr-after',
+            'maghrib-after',
+            'isha-after'
+        ];
+
+        const completedPrayers = requiredPrayers.filter(prayer => 
+            dayData.prayers && dayData.prayers[prayer]
+        ).length;
+
+        const totalRequired = requiredPrayers.length;
+        const qiyamRakahs = dayData.qiyam || 0;
+
+        if (completedPrayers === totalRequired && qiyamRakahs >= 1) {
+            return { level: 'golden', icon: '🌟' };
+        } else if (completedPrayers === totalRequired) {
+            return { level: 'full', icon: '✅' };
+        } else if (completedPrayers > 0) {
+            return { level: 'growing', icon: '🌱' };
+        } else {
+            return { level: 'silent', icon: '🌑' };
+        }
+    }
+
+    formatDateKey(date) {
+        return date.toISOString().split('T')[0];
+    }
+
+    showToast(message) {
+        const toast = document.getElementById('toast');
+        const toastMessage = document.getElementById('toastMessage');
+        
+        toastMessage.textContent = message;
+        toast.style.display = 'block';
+        
+        setTimeout(() => {
+            toast.style.display = 'none';
+        }, 3000);
+    }
+
+    loadPrayerData() {
+        const saved = localStorage.getItem('sunnahPrayerData');
+        return saved ? JSON.parse(saved) : {};
+    }
+
+    savePrayerData() {
+        localStorage.setItem('sunnahPrayerData', JSON.stringify(this.prayerData));
+    }
+
+    registerServiceWorker() {
+        // Inline service worker for PWA functionality
+        if ('serviceWorker' in navigator) {
+            const swCode = `
+                const CACHE_NAME = 'sunnah-tracker-v1';
+                const urlsToCache = ['/'];
+
+                self.addEventListener('install', event => {
+                    event.waitUntil(
+                        caches.open(CACHE_NAME)
+                            .then(cache => cache.addAll(urlsToCache))
+                    );
+                });
+
+                self.addEventListener('fetch', event => {
+                    event.respondWith(
+                        caches.match(event.request)
+                            .then(response => {
+                                if (response) {
+                                    return response;
+                                }
+                                return fetch(event.request);
+                            }
+                        )
+                    );
+                });
+            `;
+            
+            const blob = new Blob([swCode], { type: 'application/javascript' });
+            const swUrl = URL.createObjectURL(blob);
+            
+            navigator.serviceWorker.register(swUrl)
+                .then(registration => {
+                    console.log('SW registered: ', registration);
+                })
+                .catch(registrationError => {
+                    console.log('SW registration failed: ', registrationError);
+                });
+        }
+    }
+}
+
+// Initialize the app when DOM is loaded
+document.addEventListener('DOMContentLoaded', () => {
+    new SunnahTracker();
+});
+    </script>
+</body>
+</html>
