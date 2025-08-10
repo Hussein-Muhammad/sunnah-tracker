@@ -296,6 +296,92 @@ body::before {
     font-weight: 500;
 }
 
+/* New Dashboard Layout */
+.progress-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    margin-bottom: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.completed-counter {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.big-number {
+    font-size: 3rem;
+    font-weight: 800;
+    color: var(--islamic-gold);
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    line-height: 1;
+    margin-bottom: 0.25rem;
+}
+
+.counter-label {
+    font-size: 1rem;
+    color: var(--islamic-dark-brown);
+    font-weight: 600;
+    line-height: 1.2;
+}
+
+.week-label {
+    font-size: 0.85rem;
+    color: var(--islamic-brown);
+    font-weight: 500;
+    opacity: 0.8;
+    margin-top: 0.1rem;
+}
+
+.week-info-section {
+    text-align: center;
+    padding: 1rem;
+    background: var(--islamic-light-gold);
+    border-radius: 12px;
+    border: 1px solid var(--islamic-border);
+    margin-bottom: 1rem;
+}
+
+.week-elapsed-label {
+    font-size: 0.95rem;
+    color: var(--islamic-dark-brown);
+    font-weight: 600;
+    line-height: 1.4;
+}
+
+/* Responsive design for new dashboard */
+@media (max-width: 480px) {
+    .progress-section {
+        gap: 1.5rem;
+        margin-bottom: 1rem;
+    }
+    
+    .big-number {
+        font-size: 2.5rem;
+    }
+    
+    .counter-label {
+        font-size: 0.9rem;
+    }
+    
+    .week-label {
+        font-size: 0.8rem;
+    }
+    
+    .week-info-section {
+        padding: 0.8rem;
+        margin-bottom: 0.8rem;
+    }
+    
+    .week-elapsed-label {
+        font-size: 0.9rem;
+    }
+}
+
 .dashboard-actions {
     padding: 1rem;
     display: flex;
@@ -1088,6 +1174,28 @@ body::before {
     color: var(--text-secondary);
 }
 
+/* Dark mode for new dashboard layout */
+.dark-mode .big-number {
+    color: var(--accent-color);
+}
+
+.dark-mode .counter-label {
+    color: var(--text-primary);
+}
+
+.dark-mode .week-label {
+    color: var(--text-secondary);
+}
+
+.dark-mode .week-info-section {
+    background: var(--bg-tertiary);
+    border-color: var(--border-color);
+}
+
+.dark-mode .week-elapsed-label {
+    color: var(--text-primary);
+}
+
 .dark-mode .summary-card,
 .dark-mode .prayer-section,
 .dark-mode .week-card {
@@ -1791,25 +1899,29 @@ body::before {
                     <p class="week-description" data-en="Week runs from Friday to Thursday" data-ar="الأسبوع يبدأ من الجمعة إلى الخميس">Week runs from Friday to Thursday</p>
                 </div>
                 <div class="dashboard-content">
-                    <div class="progress-circle">
-                        <svg class="progress-ring" width="120" height="120">
-                            <circle class="progress-ring-bg" cx="60" cy="60" r="54" stroke-width="8"></circle>
-                            <circle class="progress-ring-fill" cx="60" cy="60" r="54" stroke-width="8"></circle>
-                        </svg>
-                        <div class="progress-text">
-                            <span id="progressPercentage">0%</span>
-                            <span class="progress-label" data-en="Complete" data-ar="مكتمل">Complete</span>
+                    <!-- Main Progress Section -->
+                    <div class="progress-section">
+                        <div class="progress-circle">
+                            <svg class="progress-ring" width="120" height="120">
+                                <circle class="progress-ring-bg" cx="60" cy="60" r="54" stroke-width="8"></circle>
+                                <circle class="progress-ring-fill" cx="60" cy="60" r="54" stroke-width="8"></circle>
+                            </svg>
+                            <div class="progress-text">
+                                <span id="progressPercentage">0%</span>
+                                <span class="progress-label" data-en="Complete" data-ar="مكتمل">Complete</span>
+                            </div>
+                        </div>
+                        
+                        <div class="completed-counter">
+                            <span class="big-number" id="completedDays">0</span>
+                            <span class="counter-label" data-en="Days Completed" data-ar="أيام مكتملة">Days Completed</span>
+                            <span class="week-label" data-en="This Week" data-ar="هذا الأسبوع">This Week</span>
                         </div>
                     </div>
-                    <div class="week-stats">
-                        <div class="stat-item">
-                            <span class="stat-number" id="completedDays">0</span>
-                            <span class="stat-label" data-en="Days Completed" data-ar="أيام مكتملة">Days Completed</span>
-                        </div>
-                        <div class="stat-item">
-                            <span class="stat-number" id="totalDays">7</span>
-                            <span class="stat-label" data-en="Total Days" data-ar="إجمالي الأيام">Total Days</span>
-                        </div>
+                    
+                    <!-- Week Info -->
+                    <div class="week-info-section">
+                        <span class="week-elapsed-label" id="elapsedText" data-en="X days passed this week" data-ar="مرّ من الأسبوع X أيام">X days passed this week</span>
                     </div>
                 </div>
                 <div class="dashboard-actions">
@@ -2157,6 +2269,11 @@ class SunnahTracker {
             element.textContent = text;
         });
 
+        // Update elapsed text if we're on dashboard
+        if (document.getElementById('dashboardView').style.display !== 'none') {
+            this.updateElapsedText();
+        }
+
         // Update back button text if we're in daily log view
         if (this.currentView === 'daily') {
             const backButton = document.getElementById('backToCalendar');
@@ -2222,6 +2339,25 @@ class SunnahTracker {
         return startOfWeek;
     }
 
+    // Update elapsed text with proper language and numerals
+    updateElapsedText(totalDays = null) {
+        if (totalDays === null) {
+            const weekProgress = this.calculateWeekProgress();
+            totalDays = weekProgress.totalDays;
+        }
+        
+        const elapsedText = document.getElementById('elapsedText');
+        if (!elapsedText) return;
+        
+        const displayDays = this.currentLanguage === 'ar' ? this.toArabicNumerals(totalDays) : totalDays;
+        
+        if (this.currentLanguage === 'ar') {
+            elapsedText.textContent = `مرّ من الأسبوع ${displayDays} أيام`;
+        } else {
+            elapsedText.textContent = `${displayDays} days passed this week`;
+        }
+    }
+
     simpleHash(str) {
         let hash = 0;
         for (let i = 0; i < str.length; i++) {
@@ -2250,11 +2386,14 @@ class SunnahTracker {
         
         document.getElementById('progressPercentage').textContent = `${percentage}%`;
         document.getElementById('completedDays').textContent = weekProgress.completedDays;
-        document.getElementById('totalDays').textContent = weekProgress.totalDays;
+        
+        // Update elapsed text
+        this.updateElapsedText(weekProgress.totalDays);
     }
 
     calculateWeekProgress() {
         const today = new Date();
+        today.setHours(0, 0, 0, 0); // Set to midnight for accurate date comparison
         const startOfWeek = this.getStartOfWeek(today);
         
         let completedDays = 0;
@@ -2264,12 +2403,14 @@ class SunnahTracker {
             const currentDate = new Date(startOfWeek);
             currentDate.setDate(startOfWeek.getDate() + i);
             
-            if (currentDate <= today) {
+            if (currentDate.getTime() <= today.getTime()) {
                 totalDays++;
                 const dateKey = this.formatDateKey(currentDate);
-                if (this.prayerData[dateKey]) {
-                    const achievement = this.calculateAchievement(this.prayerData[dateKey]);
-                    if (achievement.level !== 'silent') {
+                const dayData = this.prayerData[dateKey];
+                
+                if (dayData) {
+                    const achievement = this.calculateAchievement(dayData);
+                    if (achievement.level === 'full' || achievement.level === 'golden') {
                         completedDays++;
                     }
                 }
@@ -2277,6 +2418,7 @@ class SunnahTracker {
         }
         
         const percentage = totalDays > 0 ? (completedDays / totalDays) * 100 : 0;
+        
         return { completedDays, totalDays, percentage };
     }
 
@@ -2593,6 +2735,7 @@ class SunnahTracker {
         };
 
         this.savePrayerData();
+        
         this.renderDashboard(); // Update dashboard progress immediately
         this.showCalendarView();
         this.renderCalendar();
