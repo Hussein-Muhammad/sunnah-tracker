@@ -1490,6 +1490,107 @@ body::before {
 .dark-mode .browser-banner .install-button:hover {
     background: #FFEB3B;
 }
+
+/* Limited Browser Warning - Simple & Compatible Styles */
+.limited-browser-warning {
+    background-color: #fff3cd;
+    border: 1px solid #ffeaa7;
+    border-radius: 8px;
+    margin: 15px;
+    padding: 15px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    text-align: center;
+    font-family: Arial, sans-serif;
+}
+
+.warning-content {
+    max-width: 100%;
+}
+
+.warning-icon {
+    font-size: 2rem;
+    margin-bottom: 10px;
+    display: block;
+}
+
+.warning-text {
+    margin-bottom: 15px;
+}
+
+.warning-text strong {
+    display: block;
+    font-size: 1.1rem;
+    color: #856404;
+    margin-bottom: 8px;
+}
+
+.warning-text p {
+    margin: 0;
+    color: #856404;
+    font-size: 0.9rem;
+    line-height: 1.4;
+}
+
+.warning-actions {
+    margin-top: 15px;
+}
+
+.copy-link-btn,
+.dismiss-warning-btn {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    margin: 0 5px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.9rem;
+}
+
+.copy-link-btn:hover,
+.dismiss-warning-btn:hover {
+    background-color: #0056b3;
+}
+
+.dismiss-warning-btn {
+    background-color: #6c757d;
+}
+
+.dismiss-warning-btn:hover {
+    background-color: #545b62;
+}
+
+/* Dark mode support for warning */
+.dark-mode .limited-browser-warning {
+    background-color: #3a3a3a;
+    border-color: #555;
+    color: #fff;
+}
+
+.dark-mode .warning-text strong,
+.dark-mode .warning-text p {
+    color: #ffd700;
+}
+
+/* RTL support for warning */
+[dir="rtl"] .limited-browser-warning {
+    text-align: right;
+}
+
+/* Very basic fallback for oldest browsers */
+@media (max-width: 400px) {
+    .limited-browser-warning {
+        margin: 10px;
+        padding: 10px;
+    }
+    
+    .copy-link-btn,
+    .dismiss-warning-btn {
+        display: block;
+        width: 100%;
+        margin: 5px 0;
+    }
+}
     </style>
 </head>
 <body>
@@ -1509,20 +1610,7 @@ body::before {
             </div>
         </div>
 
-        <!-- In-App Browser Warning Banner -->
-        <div id="inAppBrowserBanner" class="browser-banner hidden">
-            <div class="banner-content">
-                <span class="banner-icon">🌐</span>
-                <div class="banner-text">
-                    <h3 class="banner-title" data-en="Better Experience Available" data-ar="تجربة أفضل متاحة">Better Experience Available</h3>
-                    <p class="banner-description" data-en="For full features, open this link in your main browser (Chrome, Safari)" data-ar="للحصول على جميع الميزات، افتح هذا الرابط في متصفحك الرئيسي (Chrome، Safari)">For full features, open this link in your main browser (Chrome, Safari)</p>
-                </div>
-                <div class="banner-actions">
-                    <button id="copyLinkBtn" class="install-button" data-en="Copy Link" data-ar="نسخ الرابط">Copy Link</button>
-                    <button id="dismissInAppBanner" class="dismiss-btn" title="Close">✕</button>
-                </div>
-            </div>
-        </div>
+
 
         <!-- Header -->
         <header class="header">
@@ -1536,6 +1624,21 @@ body::before {
                 </button>
             </div>
         </header>
+
+        <!-- Limited Browser Warning - Embedded in Body -->
+        <div id="limitedBrowserWarning" class="limited-browser-warning" style="display: none;">
+            <div class="warning-content">
+                <div class="warning-icon">😞</div>
+                <div class="warning-text">
+                    <strong id="warningTitle" data-en="Limited Browser Experience" data-ar="تجربة متصفح محدودة">Limited Browser Experience</strong>
+                    <p id="warningMessage" data-en="For full app features, please open this link in Chrome or Safari" data-ar="للحصول على جميع الميزات، افتح هذا الرابط في Chrome أو Safari">For full app features, please open this link in Chrome or Safari</p>
+                </div>
+                <div class="warning-actions">
+                    <button id="copyLinkBtn" class="copy-link-btn" data-en="Copy Link" data-ar="نسخ الرابط">Copy Link</button>
+                    <button id="dismissWarningBtn" class="dismiss-warning-btn" data-en="Got it" data-ar="فهمت">Got it</button>
+                </div>
+            </div>
+        </div>
 
         <!-- Main Content -->
         <main class="main-content">
@@ -1817,14 +1920,21 @@ class SunnahTracker {
             this.dismissPWABanner();
         });
 
-        // In-App Browser banner event listeners
-        document.getElementById('copyLinkBtn').addEventListener('click', () => {
-            this.copyLinkToClipboard();
-        });
+        // Limited Browser warning event listeners
+        const copyLinkBtn = document.getElementById('copyLinkBtn');
+        const dismissWarningBtn = document.getElementById('dismissWarningBtn');
+        
+        if (copyLinkBtn) {
+            copyLinkBtn.addEventListener('click', () => {
+                this.copyLinkToClipboard();
+            });
+        }
 
-        document.getElementById('dismissInAppBanner').addEventListener('click', () => {
-            this.dismissInAppBrowserBanner();
-        });
+        if (dismissWarningBtn) {
+            dismissWarningBtn.addEventListener('click', () => {
+                this.dismissLimitedBrowserBanner();
+            });
+        }
     }
 
     toggleLanguage() {
@@ -2511,11 +2621,11 @@ class SunnahTracker {
                                 }
                             });
                         });
-                    })
-                    .catch(registrationError => {
-                        console.log('SW registration failed: ', registrationError);
+                })
+                .catch(registrationError => {
+                    console.log('SW registration failed: ', registrationError);
                     });
-            });
+                });
         }
     }
 
@@ -2526,13 +2636,13 @@ class SunnahTracker {
             return; // Already installed as PWA
         }
 
-        // Check if user is in an in-app browser first
-        if (this.isInAppBrowser()) {
-            const dismissed = localStorage.getItem('sunnahTrackerInAppDismissed') === 'true';
+        // Check if browser supports full PWA features
+        if (!this.supportsFullPWA()) {
+            const dismissed = localStorage.getItem('sunnahTrackerLimitedBrowserDismissed') === 'true';
             if (!dismissed) {
-                this.showInAppBrowserBanner();
+                this.showLimitedBrowserBanner();
             }
-            return; // Don't show PWA banner in in-app browsers
+            return; // Don't show PWA banner in limited browsers
         }
 
         // Check if user is in incognito mode (limited PWA support)
@@ -2654,7 +2764,20 @@ class SunnahTracker {
         this.showToast(this.currentLanguage === 'en' ? 'You can still install the app from your browser menu' : 'يمكنك تثبيت التطبيق من قائمة المتصفح');
     }
 
-    // In-App Browser Detection Methods
+    // PWA Support Detection Methods
+    supportsFullPWA() {
+        // Check for essential PWA features
+        const hasServiceWorker = 'serviceWorker' in navigator;
+        const hasManifest = 'onbeforeinstallprompt' in window || 
+                           window.matchMedia('(display-mode: standalone)').matches;
+        const hasModernFeatures = 'fetch' in window && 'Promise' in window;
+        
+        // Check if it's a limited browser environment
+        const isLimitedBrowser = this.isInAppBrowser() || this.isOldBrowser();
+        
+        return hasServiceWorker && hasModernFeatures && !isLimitedBrowser;
+    }
+
     isInAppBrowser() {
         const userAgent = navigator.userAgent || navigator.vendor || window.opera;
         
@@ -2669,32 +2792,59 @@ class SunnahTracker {
             'Line',         // Line app
             'MicroMessenger', // WeChat
             'TikTok',       // TikTok
-            'Snapchat'      // Snapchat
+            'Snapchat',     // Snapchat
+            'TwitterAndroid', // Twitter
+            'LinkedInApp'   // LinkedIn
         ];
         
         return inAppBrowsers.some(browser => userAgent.includes(browser)) ||
                // iOS WebView detection
                (userAgent.includes('Safari') && userAgent.includes('Version') && 
                 userAgent.includes('Mobile') && !userAgent.includes('CriOS') && 
-                !userAgent.includes('FxiOS') && !userAgent.includes('EdgiOS'));
+                !userAgent.includes('FxiOS') && !userAgent.includes('EdgiOS')) ||
+               // Generic WebView indicators
+               userAgent.includes('wv') || userAgent.includes('WebView');
     }
 
-    showInAppBrowserBanner() {
-        const banner = document.getElementById('inAppBrowserBanner');
-        if (banner) {
-            banner.classList.remove('hidden');
+    isOldBrowser() {
+        // Detect very old browsers that don't support modern PWA features
+        const userAgent = navigator.userAgent;
+        
+        // Old Android browsers
+        if (userAgent.includes('Android') && userAgent.includes('Chrome/')) {
+            const chromeVersion = parseInt(userAgent.match(/Chrome\/(\d+)/)?.[1] || '0');
+            if (chromeVersion < 70) return true; // Chrome 70+ for full PWA support
+        }
+        
+        // Old iOS Safari
+        if (userAgent.includes('iPhone') || userAgent.includes('iPad')) {
+            const iosVersion = parseFloat(userAgent.match(/OS (\d+)_(\d+)/)?.[1] + '.' + userAgent.match(/OS (\d+)_(\d+)/)?.[2] || '0');
+            if (iosVersion < 11.3) return true; // iOS 11.3+ for service worker support
+        }
+        
+        return false;
+    }
+
+    showLimitedBrowserBanner() {
+        const warning = document.getElementById('limitedBrowserWarning');
+        if (warning) {
+            warning.style.display = 'block';
+            // Smooth fade-in effect
+            warning.style.opacity = '0';
             setTimeout(() => {
-                banner.classList.add('show');
-            }, 1000); // Show after 1 second
+                warning.style.opacity = '1';
+                warning.style.transition = 'opacity 0.5s ease-in';
+            }, 100);
         }
     }
 
-    hideInAppBrowserBanner() {
-        const banner = document.getElementById('inAppBrowserBanner');
-        if (banner) {
-            banner.classList.remove('show');
+    hideLimitedBrowserBanner() {
+        const warning = document.getElementById('limitedBrowserWarning');
+        if (warning) {
+            warning.style.opacity = '0';
+            warning.style.transition = 'opacity 0.3s ease-out';
             setTimeout(() => {
-                banner.classList.add('hidden');
+                warning.style.display = 'none';
             }, 300);
         }
     }
@@ -2718,7 +2868,7 @@ class SunnahTracker {
         
         // Hide banner after copying
         setTimeout(() => {
-            this.hideInAppBrowserBanner();
+            this.hideLimitedBrowserBanner();
         }, 2000);
     }
 
@@ -2747,12 +2897,12 @@ class SunnahTracker {
         document.body.removeChild(textArea);
     }
 
-    dismissInAppBrowserBanner() {
-        this.hideInAppBrowserBanner();
-        localStorage.setItem('sunnahTrackerInAppDismissed', 'true');
+    dismissLimitedBrowserBanner() {
+        this.hideLimitedBrowserBanner();
+        localStorage.setItem('sunnahTrackerLimitedBrowserDismissed', 'true');
         this.showToast(this.currentLanguage === 'en' ? 
-            'Tip: Use "Open in Browser" option for best experience' : 
-            'نصيحة: استخدم خيار "فتح في المتصفح" للحصول على أفضل تجربة');
+            'Tip: For full features, try opening in Chrome or Safari' : 
+            'نصيحة: للحصول على جميع الميزات، جرب الفتح في Chrome أو Safari');
     }
 }
 
