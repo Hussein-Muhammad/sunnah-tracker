@@ -1,10 +1,11 @@
 // Sunnah Tracker Service Worker
-const CACHE_NAME = 'sunnah-tracker-v1.0.0';
+const CACHE_NAME = 'sunnah-tracker-v1.1.0';
 const urlsToCache = [
-  '/sunnah-tracker/',
-  '/sunnah-tracker/index.html',
-  '/sunnah-tracker/manifest.json',
-  '/sunnah-tracker/icon.svg'
+  './',
+  './index.html',
+  './manifest.json',
+  './icon.svg',
+  './qr.png'
 ];
 
 // Install event - cache resources
@@ -74,7 +75,7 @@ self.addEventListener('fetch', event => {
         }).catch(() => {
           // If network fails and no cache, return offline page
           if (event.request.destination === 'document') {
-            return caches.match('/sunnah-tracker/index.html');
+            return caches.match('./index.html');
           }
         });
       })
@@ -94,8 +95,8 @@ self.addEventListener('push', event => {
   if (event.data) {
     const options = {
       body: event.data.text(),
-      icon: '/sunnah-tracker/icon.svg',
-      badge: '/sunnah-tracker/icon.svg',
+      icon: './icon.svg',
+      badge: './icon.svg',
       vibrate: [100, 50, 100],
       data: {
         dateOfArrival: Date.now(),
