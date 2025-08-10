@@ -196,6 +196,16 @@ body::before {
     position: relative;
 }
 
+.week-description {
+    font-size: 0.8rem;
+    color: var(--islamic-brown);
+    margin-top: 0.25rem;
+    text-align: center;
+    opacity: 0.8;
+    font-weight: 400;
+    line-height: 1.3;
+}
+
 .dashboard-content {
     padding: 2rem 1rem;
     display: flex;
@@ -1074,6 +1084,10 @@ body::before {
     margin-bottom: 15px;
 }
 
+.dark-mode .week-description {
+    color: var(--text-secondary);
+}
+
 .dark-mode .summary-card,
 .dark-mode .prayer-section,
 .dark-mode .week-card {
@@ -1281,6 +1295,134 @@ body::before {
         opacity: 1;
         transform: translateY(0);
     }
+}
+
+/* Share Modal */
+.share-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    animation: fadeIn 0.3s ease;
+}
+
+.share-modal.show {
+    display: flex;
+}
+
+.share-content {
+    background: var(--islamic-warm-white);
+    border-radius: 15px;
+    padding: 2rem;
+    margin: 1rem;
+    max-width: 300px;
+    width: 100%;
+    border: 2px solid var(--islamic-border);
+    box-shadow: 0 8px 25px rgba(139, 69, 19, 0.3);
+    position: relative;
+}
+
+.share-content::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--islamic-gold) 0%, var(--islamic-golden) 50%, var(--islamic-gold) 100%);
+    border-radius: 15px 15px 0 0;
+}
+
+.share-title {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--islamic-dark-brown);
+    margin: 0 0 1.5rem 0;
+    text-align: center;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.share-options {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.share-option-btn {
+    padding: 1rem;
+    border: 2px solid var(--islamic-border);
+    border-radius: 10px;
+    background: var(--islamic-cream);
+    color: var(--islamic-dark-brown);
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.share-option-btn:hover {
+    background: var(--islamic-brown);
+    color: var(--islamic-warm-white);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(139, 69, 19, 0.3);
+}
+
+.close-modal {
+    position: absolute;
+    top: 0.5rem;
+    right: 0.5rem;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    color: var(--islamic-brown);
+    cursor: pointer;
+    padding: 0.5rem;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+.close-modal:hover {
+    background: var(--islamic-border);
+    transform: scale(1.1);
+}
+
+/* Dark mode support for share modal */
+.dark-mode .share-content {
+    background: var(--bg-secondary);
+    border-color: var(--border-color);
+}
+
+.dark-mode .share-title {
+    color: var(--text-primary);
+}
+
+.dark-mode .share-option-btn {
+    background: var(--bg-tertiary);
+    color: var(--text-primary);
+    border-color: var(--border-color);
+}
+
+.dark-mode .share-option-btn:hover {
+    background: var(--accent-color);
+    color: var(--bg-primary);
+}
+
+.dark-mode .close-modal {
+    color: var(--text-secondary);
+}
+
+.dark-mode .close-modal:hover {
+    background: var(--bg-tertiary);
 }
 
 /* Achievement Level Colors with Islamic theme */
@@ -1646,6 +1788,7 @@ body::before {
             <div id="dashboardView" class="dashboard-view">
                 <div class="dashboard-header">
                     <h2 class="dashboard-title" data-en="This Week's Progress" data-ar="تقدم هذا الأسبوع">This Week's Progress</h2>
+                    <p class="week-description" data-en="Week runs from Friday to Thursday" data-ar="الأسبوع يبدأ من الجمعة إلى الخميس">Week runs from Friday to Thursday</p>
                 </div>
                 <div class="dashboard-content">
                     <div class="progress-circle">
@@ -1686,13 +1829,13 @@ body::before {
                 
                 <div class="calendar-grid">
                     <div class="weekdays">
+                        <div class="weekday" data-en="Fri" data-ar="جمعة">Fri</div>
+                        <div class="weekday" data-en="Sat" data-ar="سبت">Sat</div>
                         <div class="weekday" data-en="Sun" data-ar="أحد">Sun</div>
                         <div class="weekday" data-en="Mon" data-ar="اثن">Mon</div>
                         <div class="weekday" data-en="Tue" data-ar="ثلاث">Tue</div>
                         <div class="weekday" data-en="Wed" data-ar="أربع">Wed</div>
                         <div class="weekday" data-en="Thu" data-ar="خميس">Thu</div>
-                        <div class="weekday" data-en="Fri" data-ar="جمعة">Fri</div>
-                        <div class="weekday" data-en="Sat" data-ar="سبت">Sat</div>
                     </div>
                     <div id="calendarDays" class="calendar-days"></div>
                 </div>
@@ -1712,7 +1855,7 @@ body::before {
                             <div class="summary-stats">
                                 <div class="summary-stat">
                                     <span class="stat-value" id="totalDaysTracked">0</span>
-                                    <span class="stat-label" data-en="Days Tracked" data-ar="أيام متتبعة">Days Tracked</span>
+                                    <span class="stat-label" data-en="Days Tracked" data-ar="أيام مسجلة">Days Tracked</span>
                                 </div>
                                 <div class="summary-stat">
                                     <span class="stat-value" id="totalPrayers">0</span>
@@ -1728,6 +1871,7 @@ body::before {
                     
                     <div class="report-weeks">
                         <h3 class="weeks-title" data-en="Weekly Breakdown" data-ar="التفصيل الأسبوعي">Weekly Breakdown</h3>
+                        <p class="week-description" data-en="Each week runs from Friday to Thursday" data-ar="">Each week runs from Friday to Thursday</p>
                         <div id="weeksList" class="weeks-list">
                             <!-- Weeks will be populated by JavaScript -->
                         </div>
@@ -1814,7 +1958,7 @@ body::before {
                 </div>
 
                 <div class="log-actions">
-                    <button id="shareDay" class="action-btn secondary" data-en="Share Day" data-ar="مشاركة اليوم">Share Day</button>
+                    <button id="shareDay" class="action-btn secondary" data-en="↗️ Share Day" data-ar="↗️ مشاركة اليوم">↗️ Share Day</button>
                     <button id="saveLog" class="save-btn" data-en="Save Day" data-ar="حفظ اليوم">Save Day</button>
                 </div>
             </div>
@@ -1823,6 +1967,18 @@ body::before {
         <!-- Toast Notification -->
         <div id="toast" class="toast" style="display: none;">
             <span id="toastMessage"></span>
+        </div>
+
+        <!-- Share Modal -->
+        <div id="shareModal" class="share-modal">
+            <div class="share-content">
+                <button class="close-modal" id="closeShareModal">✕</button>
+                <h3 class="share-title" data-en="Share Your Progress" data-ar="مشاركة التقدم">Share Your Progress</h3>
+                <div class="share-options">
+                    <button id="shareTextOption" class="share-option-btn" data-en="📱 Share as Text" data-ar="📱 مشاركة كنص">📱 Share as Text</button>
+                    <button id="shareImageOption" class="share-option-btn" data-en="🖼️ Share as Image" data-ar="🖼️ مشاركة كصورة">🖼️ Share as Image</button>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -1906,9 +2062,32 @@ class SunnahTracker {
             this.savePrayerLog();
         });
 
-        // Share day
+        // Share day - show modal
         document.getElementById('shareDay').addEventListener('click', () => {
-            this.shareDay();
+            this.showShareModal();
+        });
+
+        // Share modal options
+        document.getElementById('shareTextOption').addEventListener('click', () => {
+            this.hideShareModal();
+            this.shareText();
+        });
+
+        document.getElementById('shareImageOption').addEventListener('click', () => {
+            this.hideShareModal();
+            this.shareImage();
+        });
+
+        // Close share modal
+        document.getElementById('closeShareModal').addEventListener('click', () => {
+            this.hideShareModal();
+        });
+
+        // Close modal when clicking outside
+        document.getElementById('shareModal').addEventListener('click', (e) => {
+            if (e.target.id === 'shareModal') {
+                this.hideShareModal();
+            }
         });
 
         // PWA Banner event listeners
@@ -2032,6 +2211,27 @@ class SunnahTracker {
         return num.toString().replace(/\d/g, d => arabicNumerals[d]);
     }
 
+    // Helper function to get start of week (Friday-based)
+    getStartOfWeek(date) {
+        const startOfWeek = new Date(date);
+        // getDay() returns 0=Sunday, 1=Monday, ..., 5=Friday, 6=Saturday
+        // We want Friday to be day 0 of our week
+        const dayOfWeek = date.getDay();
+        const daysFromFriday = dayOfWeek >= 5 ? dayOfWeek - 5 : dayOfWeek + 2;
+        startOfWeek.setDate(date.getDate() - daysFromFriday);
+        return startOfWeek;
+    }
+
+    simpleHash(str) {
+        let hash = 0;
+        for (let i = 0; i < str.length; i++) {
+            const char = str.charCodeAt(i);
+            hash = ((hash << 5) - hash) + char;
+            hash = hash & hash; // Convert to 32bit integer
+        }
+        return Math.abs(hash);
+    }
+
     navigateMonth(direction) {
         this.currentDate.setMonth(this.currentDate.getMonth() + direction);
         this.updateMonthTitle();
@@ -2055,8 +2255,7 @@ class SunnahTracker {
 
     calculateWeekProgress() {
         const today = new Date();
-        const startOfWeek = new Date(today);
-        startOfWeek.setDate(today.getDate() - today.getDay());
+        const startOfWeek = this.getStartOfWeek(today);
         
         let completedDays = 0;
         let totalDays = 0;
@@ -2090,8 +2289,7 @@ class SunnahTracker {
         
         const firstDay = new Date(year, month, 1);
         const lastDay = new Date(year, month + 1, 0);
-        const startDate = new Date(firstDay);
-        startDate.setDate(startDate.getDate() - firstDay.getDay());
+        const startDate = this.getStartOfWeek(firstDay);
 
         const today = new Date();
         today.setHours(0, 0, 0, 0);
@@ -2201,8 +2399,7 @@ class SunnahTracker {
         
         allDates.forEach(dateKey => {
             const date = new Date(dateKey);
-            const weekStart = new Date(date);
-            weekStart.setDate(date.getDate() - date.getDay());
+            const weekStart = this.getStartOfWeek(date);
             const weekKey = this.formatDateKey(weekStart);
             
             if (!weeks[weekKey]) {
@@ -2248,7 +2445,7 @@ class SunnahTracker {
         
         // Convert weeks object to array and calculate progress
         const weeksArray = Object.values(weeks).map(week => {
-            const daysCompleted = week.days.length;
+            const daysCompleted = week.days.filter(day => day.achievement.level !== 'silent').length;
             const progress = Math.round((daysCompleted / 7) * 100);
             
             const dateRange = this.currentLanguage === 'en' ?
@@ -2263,8 +2460,15 @@ class SunnahTracker {
             };
         }).sort((a, b) => b.startDate - a.startDate);
         
+        // Count only non-silent days for total days tracked
+        const totalDaysTracked = allDates.filter(dateKey => {
+            const dayData = this.prayerData[dateKey];
+            const achievement = this.calculateAchievement(dayData);
+            return achievement.level !== 'silent';
+        }).length;
+
         return {
-            totalDaysTracked: allDates.length,
+            totalDaysTracked,
             totalPrayers,
             totalQiyam,
             weeks: weeksArray
@@ -2389,17 +2593,40 @@ class SunnahTracker {
         };
 
         this.savePrayerData();
+        this.renderDashboard(); // Update dashboard progress immediately
         this.showCalendarView();
         this.renderCalendar();
         this.showToast(this.currentLanguage === 'en' ? 'Day saved successfully!' : 'تم حفظ اليوم بنجاح!');
     }
 
-    shareDay() {
+    showShareModal() {
         const dateKey = this.formatDateKey(this.selectedDate);
         const dayData = this.prayerData[dateKey];
         
         if (!dayData) {
-            this.showToast(this.currentLanguage === 'en' ? 'No data to share for this day' : 'لا توجد بيانات لمشاركتها لهذا اليوم');
+            this.showToast(this.currentLanguage === 'en' ? 
+                'Please save your prayer data first before sharing' : 
+                'يرجى حفظ بيانات الصلاة أولاً قبل المشاركة');
+            return;
+        }
+        
+        const modal = document.getElementById('shareModal');
+        modal.classList.add('show');
+    }
+
+    hideShareModal() {
+        const modal = document.getElementById('shareModal');
+        modal.classList.remove('show');
+    }
+
+    shareText() {
+        const dateKey = this.formatDateKey(this.selectedDate);
+        const dayData = this.prayerData[dateKey];
+        
+        if (!dayData) {
+            this.showToast(this.currentLanguage === 'en' ? 
+                'Please save your prayer data first before sharing' : 
+                'يرجى حفظ بيانات الصلاة أولاً قبل المشاركة');
             return;
         }
         
@@ -2413,23 +2640,44 @@ class SunnahTracker {
             }
         );
         
-        // Check if we're on mobile (has touch screen and small viewport)
-        const isMobile = 'ontouchstart' in window && window.innerWidth <= 768;
+        const shareText = this.currentLanguage === 'en' ?
+            `📅 ${dateStr}\n\n🌟 ${achievement.level.toUpperCase()} DAY 🌟\n\nPrayers completed: ${Object.values(dayData.prayers || {}).filter(Boolean).length * 2} rak'ahs\nQiyam: ${dayData.qiyam || 0} rak'ahs\n\n#SunnahTracker` :
+            `📅 ${dateStr}\n\n🌟 ${achievement.icon} ${achievement.level === 'golden' ? 'يوم ذهبي' : achievement.level === 'full' ? 'يوم مكتمل' : achievement.level === 'growing' ? 'يوم متقدم' : 'يوم فارغ'} 🌟\n\nالصلوات المكتملة: ${Object.values(dayData.prayers || {}).filter(Boolean).length * 2} ركعة\nالقيام: ${dayData.qiyam || 0} ركعة\n\n#تتبع_السنن`;
         
-        if (isMobile && navigator.share) {
-            // Mobile: use native share
-            const shareText = this.currentLanguage === 'en' ?
-                `📅 ${dateStr}\n\n🌟 ${achievement.level.toUpperCase()} DAY 🌟\n\nPrayers completed: ${Object.values(dayData.prayers || {}).filter(Boolean).length * 2} rak'ahs\nQiyam: ${dayData.qiyam || 0} rak'ahs\n\n#SunnahTracker` :
-                `📅 ${dateStr}\n\n🌟 ${achievement.icon} ${achievement.level === 'golden' ? 'يوم ذهبي' : achievement.level === 'full' ? 'يوم مكتمل' : achievement.level === 'growing' ? 'يوم متقدم' : 'يوم فارغ'} 🌟\n\nالصلوات المكتملة: ${Object.values(dayData.prayers || {}).filter(Boolean).length * 2} ركعة\nالقيام: ${dayData.qiyam || 0} ركعة\n\n#تتبع_السنن`;
-            
+        // Try native share first (mobile), fallback to clipboard
+        if (navigator.share) {
             navigator.share({
                 title: this.currentLanguage === 'en' ? 'Sunnah Tracker Progress' : 'تقدم تتبع السنن',
                 text: shareText
             });
         } else {
-            // Desktop: create and download image
-            this.createAndDownloadImage(dateStr, achievement, dayData);
+            // Fallback: copy to clipboard
+            this.copyTextToClipboard(shareText);
         }
+    }
+
+    shareImage() {
+        const dateKey = this.formatDateKey(this.selectedDate);
+        const dayData = this.prayerData[dateKey];
+        
+        if (!dayData) {
+            this.showToast(this.currentLanguage === 'en' ? 
+                'Please save your prayer data first before sharing' : 
+                'يرجى حفظ بيانات الصلاة أولاً قبل المشاركة');
+            return;
+        }
+        
+        const achievement = this.calculateAchievement(dayData);
+        const dateStr = this.selectedDate.toLocaleDateString(
+            this.currentLanguage === 'en' ? 'en-US' : 'ar-SA',
+            { 
+                year: 'numeric', 
+                month: 'long', 
+                day: 'numeric' 
+            }
+        );
+        
+        this.createAndDownloadImage(dateStr, achievement, dayData);
     }
 
     createAndDownloadImage(dateStr, achievement, dayData) {
@@ -2440,6 +2688,10 @@ class SunnahTracker {
         // Set canvas size
         canvas.width = 600;
         canvas.height = 400;
+        
+        // Load QR code image
+        const qrImage = new Image();
+        qrImage.src = 'qr.png';
         
         // Background gradient
         const gradient = ctx.createLinearGradient(0, 0, 0, canvas.height);
@@ -2539,13 +2791,45 @@ class SunnahTracker {
         ctx.textAlign = 'center';
         ctx.fillText('#SunnahTracker', canvas.width / 2, 350);
         
-        // Download the image
-        const link = document.createElement('a');
-        link.download = `sunnah-progress-${this.formatDateKey(this.selectedDate)}.png`;
-        link.href = canvas.toDataURL();
-        link.click();
+        // Function to complete the image creation
+        const completeImage = () => {
+            // Add QR code in bottom corner (left for English, right for Arabic)
+            const qrSize = 60;
+            const qrPadding = 15;
+            let qrX, qrY;
+            
+            if (this.currentLanguage === 'ar') {
+                // Right bottom corner for Arabic
+                qrX = canvas.width - qrSize - qrPadding;
+            } else {
+                // Left bottom corner for English
+                qrX = qrPadding;
+            }
+            qrY = canvas.height - qrSize - qrPadding;
+            
+            // Draw the QR code image
+            if (qrImage.complete && qrImage.naturalHeight !== 0) {
+                ctx.drawImage(qrImage, qrX, qrY, qrSize, qrSize);
+            }
+            
+            // Download the image
+            const link = document.createElement('a');
+            link.download = `sunnah-progress-${this.formatDateKey(this.selectedDate)}.png`;
+            link.href = canvas.toDataURL();
+            link.click();
+            
+            this.showToast(this.currentLanguage === 'en' ? 'Progress image downloaded!' : 'تم تحميل صورة التقدم!');
+        };
         
-        this.showToast(this.currentLanguage === 'en' ? 'Progress image downloaded!' : 'تم تحميل صورة التقدم!');
+        // Wait for QR image to load, or continue without it
+        if (qrImage.complete) {
+            completeImage();
+        } else {
+            qrImage.onload = completeImage;
+            qrImage.onerror = completeImage; // Continue even if QR image fails to load
+            // Fallback timeout in case image takes too long
+            setTimeout(completeImage, 1000);
+        }
     }
 
     calculateAchievement(dayData) {
@@ -2893,7 +3177,22 @@ class SunnahTracker {
         }, 2000);
     }
 
-    fallbackCopyToClipboard(text) {
+    async copyTextToClipboard(text) {
+        try {
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+                await navigator.clipboard.writeText(text);
+                this.showToast(this.currentLanguage === 'en' ? 
+                    '📋 Text copied to clipboard!' : 
+                    '📋 تم نسخ النص!');
+            } else {
+                this.fallbackCopyToClipboard(text, 'text');
+            }
+        } catch (err) {
+            this.fallbackCopyToClipboard(text, 'text');
+        }
+    }
+
+    fallbackCopyToClipboard(text, type = 'link') {
         // Create temporary text area
         const textArea = document.createElement('textarea');
         textArea.value = text;
@@ -2906,13 +3205,25 @@ class SunnahTracker {
         
         try {
             document.execCommand('copy');
-            this.showToast(this.currentLanguage === 'en' ? 
-                '📋 Link copied! Paste it in your browser' : 
-                '📋 تم نسخ الرابط! الصقه في متصفحك');
+            if (type === 'text') {
+                this.showToast(this.currentLanguage === 'en' ? 
+                    '📋 Text copied to clipboard!' : 
+                    '📋 تم نسخ النص!');
+            } else {
+                this.showToast(this.currentLanguage === 'en' ? 
+                    '📋 Link copied! Paste it in your browser' : 
+                    '📋 تم نسخ الرابط! الصقه في متصفحك');
+            }
         } catch (err) {
-            this.showToast(this.currentLanguage === 'en' ? 
-                'Copy this URL and open in browser' : 
-                'انسخ هذا الرابط وافتحه في المتصفح');
+            if (type === 'text') {
+                this.showToast(this.currentLanguage === 'en' ? 
+                    'Could not copy text automatically' : 
+                    'لم يتم نسخ النص تلقائياً');
+            } else {
+                this.showToast(this.currentLanguage === 'en' ? 
+                    'Copy this URL and open in browser' : 
+                    'انسخ هذا الرابط وافتحه في المتصفح');
+            }
         }
         
         document.body.removeChild(textArea);
