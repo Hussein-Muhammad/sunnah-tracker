@@ -2766,16 +2766,23 @@ class SunnahTracker {
 
     // PWA Support Detection Methods
     supportsFullPWA() {
+        // First check: If it's an in-app browser, it's definitely limited
+        const isInApp = this.isInAppBrowser();
+        if (isInApp) {
+            return false;
+        }
+        
+        // Second check: Old browser detection
+        const isOld = this.isOldBrowser();
+        if (isOld) {
+            return false;
+        }
+        
         // Check for essential PWA features
         const hasServiceWorker = 'serviceWorker' in navigator;
-        const hasManifest = 'onbeforeinstallprompt' in window || 
-                           window.matchMedia('(display-mode: standalone)').matches;
         const hasModernFeatures = 'fetch' in window && 'Promise' in window;
         
-        // Check if it's a limited browser environment
-        const isLimitedBrowser = this.isInAppBrowser() || this.isOldBrowser();
-        
-        return hasServiceWorker && hasModernFeatures && !isLimitedBrowser;
+        return hasServiceWorker && hasModernFeatures;
     }
 
     isInAppBrowser() {
@@ -2789,21 +2796,35 @@ class SunnahTracker {
             'Instagram',    // Instagram
             'WhatsApp',     // WhatsApp
             'Telegram',     // Telegram
+            'TelegramBot',  // Telegram additional pattern
             'Line',         // Line app
             'MicroMessenger', // WeChat
             'TikTok',       // TikTok
             'Snapchat',     // Snapchat
             'TwitterAndroid', // Twitter
-            'LinkedInApp'   // LinkedIn
+            'LinkedInApp',  // LinkedIn
+            'Pinterest',    // Pinterest
+            'Reddit'        // Reddit app
         ];
         
-        return inAppBrowsers.some(browser => userAgent.includes(browser)) ||
-               // iOS WebView detection
-               (userAgent.includes('Safari') && userAgent.includes('Version') && 
-                userAgent.includes('Mobile') && !userAgent.includes('CriOS') && 
-                !userAgent.includes('FxiOS') && !userAgent.includes('EdgiOS')) ||
-               // Generic WebView indicators
-               userAgent.includes('wv') || userAgent.includes('WebView');
+        // Check if user agent contains any in-app browser patterns
+        if (inAppBrowsers.some(browser => userAgent.includes(browser))) {
+            return true;
+        }
+        
+        // iOS WebView detection
+        if (userAgent.includes('Safari') && userAgent.includes('Version') && 
+            userAgent.includes('Mobile') && !userAgent.includes('CriOS') && 
+            !userAgent.includes('FxiOS') && !userAgent.includes('EdgiOS')) {
+            return true;
+        }
+        
+        // Generic WebView indicators
+        if (userAgent.includes('wv') || userAgent.includes('WebView')) {
+            return true;
+        }
+        
+        return false;
     }
 
     isOldBrowser() {
