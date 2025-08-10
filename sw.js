@@ -18,7 +18,8 @@ self.addEventListener('install', event => {
         return cache.addAll(urlsToCache);
       })
       .then(() => {
-        // Skip waiting to activate immediately
+        // Skip waiting to activate immediately - forces immediate update
+        console.log('Service Worker: Skip waiting, activating immediately');
         return self.skipWaiting();
       })
   );
@@ -38,8 +39,17 @@ self.addEventListener('activate', event => {
         })
       );
     }).then(() => {
-      // Claim all clients immediately
+      // Claim all clients immediately - forces immediate control
+      console.log('Service Worker: Taking control of all clients');
       return self.clients.claim();
+    }).then(() => {
+      // Refresh all clients to load new content
+      return self.clients.matchAll().then(clients => {
+        clients.forEach(client => {
+          console.log('Service Worker: Refreshing client');
+          client.navigate(client.url);
+        });
+      });
     })
   );
 });

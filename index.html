@@ -3036,15 +3036,28 @@ class SunnahTracker {
                     .then(registration => {
                         console.log('SW registered: ', registration);
                         
-                        // Check for updates
+                        // Check for updates on startup only
+                        registration.update();
+                        
+                        // Handle updates when found
                         registration.addEventListener('updatefound', () => {
                             const newWorker = registration.installing;
+                            console.log('New service worker found, installing...');
+                            
                             newWorker.addEventListener('statechange', () => {
                                 if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
-                                    // New content is available, refresh the page
-                                    if (confirm('New version available! Refresh to update?')) {
+                                    console.log('New content is available');
+                                    // Show user-friendly update notification
+                                    const updateMessage = this.currentLanguage === 'en' ? 
+                                        'New version available! The app will update automatically.' : 
+                                        'إصدار جديد متاح! سيتم تحديث التطبيق تلقائياً.';
+                                    
+                                    this.showToast(updateMessage);
+                                    
+                                    // Auto-refresh after a short delay
+                                    setTimeout(() => {
                                         window.location.reload();
-                                    }
+                                    }, 2000);
                                 }
                             });
                         });

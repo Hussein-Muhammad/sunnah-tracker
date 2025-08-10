@@ -1,12 +1,12 @@
 {
   "name": "Sunnah Tracker - تتبع السنن الرواتب",
   "short_name": "Sunnah Tracker",
-  "start_url": "/sunnah-tracker/",
+  "start_url": "./",
   "display": "standalone",
   "background_color": "#F5F5DC",
   "theme_color": "#8B4513",
   "description": "Track your daily Sunnah prayers and Qiyam Al-Layl",
-  "scope": "/sunnah-tracker/",
+  "scope": "./",
   "orientation": "portrait",
   "icons": [
     {
