@@ -1,0 +1,78 @@
+<svg width="480" height="480" viewBox="0 0 480 480" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background circle -->
+  <circle cx="240" cy="240" r="240" fill="#F5F5DC"/>
+  
+  <!-- Circular border -->
+  <circle cx="240" cy="240" r="220" fill="none" stroke="#8B4513" stroke-width="8"/>
+  <circle cx="240" cy="240" r="200" fill="none" stroke="#DAA520" stroke-width="3"/>
+  
+  <!-- Mohamed Ali Mosque Design -->
+  
+  <!-- Main mosque base (Ottoman style) -->
+  <rect x="100" y="300" width="280" height="100" fill="#654321"/>
+  
+  <!-- Central massive dome (like Mohamed Ali Mosque) -->
+  <ellipse cx="240" cy="300" rx="120" ry="90" fill="#8B4513"/>
+  
+  <!-- Four semi-domes around the main dome (Ottoman characteristic) -->
+  <ellipse cx="160" cy="320" rx="50" ry="40" fill="#654321"/>
+  <ellipse cx="320" cy="320" rx="50" ry="40" fill="#654321"/>
+  <ellipse cx="200" cy="280" rx="40" ry="30" fill="#654321"/>
+  <ellipse cx="280" cy="280" rx="40" ry="30" fill="#654321"/>
+  
+  <!-- Twin Ottoman minarets (pencil-thin and tall like Mohamed Ali Mosque) -->
+  <g>
+    <!-- Left minaret -->
+    <rect x="130" y="80" width="20" height="220" fill="#8B4513"/>
+    <!-- Minaret balcony -->
+    <rect x="125" y="180" width="30" height="8" fill="#654321"/>
+    <!-- Minaret cap -->
+    <ellipse cx="140" cy="75" rx="15" ry="20" fill="#654321"/>
+    <!-- Crescent -->
+    <path d="M135 55 C135 50, 140 45, 145 50 C143 55, 143 60, 145 65 C140 65, 135 60, 135 55 Z" fill="#DAA520"/>
+    
+    <!-- Right minaret -->
+    <rect x="330" y="80" width="20" height="220" fill="#8B4513"/>
+    <!-- Minaret balcony -->
+    <rect x="325" y="180" width="30" height="8" fill="#654321"/>
+    <!-- Minaret cap -->
+    <ellipse cx="340" cy="75" rx="15" ry="20" fill="#654321"/>
+    <!-- Crescent -->
+    <path d="M335 55 C335 50, 340 45, 345 50 C343 55, 343 60, 345 65 C340 65, 335 60, 335 55 Z" fill="#DAA520"/>
+  </g>
+  
+  <!-- Ottoman-style entrance portal -->
+  <g>
+    <!-- Main entrance arch (larger and more ornate) -->
+    <path d="M190 350 L190 400 L290 400 L290 350 C290 325, 265 300, 240 300 C215 300, 190 325, 190 350 Z" fill="#F5F5DC"/>
+    
+    <!-- Entrance columns -->
+    <rect x="185" y="350" width="8" height="50" fill="#8B4513"/>
+    <rect x="287" y="350" width="8" height="50" fill="#8B4513"/>
+    
+    <!-- Side smaller arches -->
+    <path d="M130 360 L130 390 L160 390 C160 375, 145 360, 130 360 Z" fill="#F5F5DC"/>
+    <path d="M350 360 C335 360, 320 375, 320 390 L350 390 L350 360 Z" fill="#F5F5DC"/>
+  </g>
+  
+  <!-- Ottoman windows (arched) -->
+  <g fill="#F5F5DC">
+    <ellipse cx="200" cy="340" rx="8" ry="12"/>
+    <ellipse cx="240" cy="335" rx="8" ry="12"/>
+    <ellipse cx="280" cy="340" rx="8" ry="12"/>
+  </g>
+  
+  <!-- Decorative Ottoman elements -->
+  <g>
+    <!-- Dome crescent -->
+    <path d="M235 210 C235 200, 245 195, 250 200 C247 210, 247 220, 250 230 C245 230, 235 220, 235 210 Z" fill="#DAA520"/>
+    
+    <!-- Small decorative stars -->
+    <g fill="#DAA520">
+      <circle cx="120" cy="150" r="3"/>
+      <circle cx="360" cy="150" r="3"/>
+      <circle cx="100" cy="250" r="2"/>
+      <circle cx="380" cy="250" r="2"/>
+    </g>
+  </g>
+</svg>
