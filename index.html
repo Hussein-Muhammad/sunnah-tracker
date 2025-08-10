@@ -1452,6 +1452,44 @@ body::before {
         font-size: 0.85rem;
     }
 }
+
+/* In-App Browser Banner */
+.browser-banner {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(135deg, #FF6B6B 0%, #FF8E53 100%);
+    color: white;
+    z-index: 1001;
+    box-shadow: 0 4px 20px rgba(255, 107, 107, 0.3);
+    border-bottom: 3px solid #FFD93D;
+    transform: translateY(-100%);
+    transition: transform 0.3s ease-in-out;
+}
+
+.browser-banner.show {
+    transform: translateY(0);
+}
+
+.browser-banner.hidden {
+    display: none;
+}
+
+/* Dark mode for browser banner */
+.dark-mode .browser-banner {
+    background: linear-gradient(135deg, #D32F2F 0%, #F57C00 100%);
+    border-bottom-color: #FFD54F;
+}
+
+.dark-mode .browser-banner .install-button {
+    background: #FFD54F;
+    color: #D32F2F;
+}
+
+.dark-mode .browser-banner .install-button:hover {
+    background: #FFEB3B;
+}
     </style>
 </head>
 <body>
@@ -1467,6 +1505,21 @@ body::before {
                 <div class="banner-actions">
                     <button id="installAppBtn" class="install-button" data-en="Install" data-ar="تثبيت">Install</button>
                     <button id="dismissBanner" class="dismiss-btn" title="Close">✕</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- In-App Browser Warning Banner -->
+        <div id="inAppBrowserBanner" class="browser-banner hidden">
+            <div class="banner-content">
+                <span class="banner-icon">🌐</span>
+                <div class="banner-text">
+                    <h3 class="banner-title" data-en="Better Experience Available" data-ar="تجربة أفضل متاحة">Better Experience Available</h3>
+                    <p class="banner-description" data-en="For full features, open this link in your main browser (Chrome, Safari)" data-ar="للحصول على جميع الميزات، افتح هذا الرابط في متصفحك الرئيسي (Chrome، Safari)">For full features, open this link in your main browser (Chrome, Safari)</p>
+                </div>
+                <div class="banner-actions">
+                    <button id="copyLinkBtn" class="install-button" data-en="Copy Link" data-ar="نسخ الرابط">Copy Link</button>
+                    <button id="dismissInAppBanner" class="dismiss-btn" title="Close">✕</button>
                 </div>
             </div>
         </div>
@@ -1762,6 +1815,15 @@ class SunnahTracker {
 
         document.getElementById('dismissBanner').addEventListener('click', () => {
             this.dismissPWABanner();
+        });
+
+        // In-App Browser banner event listeners
+        document.getElementById('copyLinkBtn').addEventListener('click', () => {
+            this.copyLinkToClipboard();
+        });
+
+        document.getElementById('dismissInAppBanner').addEventListener('click', () => {
+            this.dismissInAppBrowserBanner();
         });
     }
 
@@ -2464,6 +2526,15 @@ class SunnahTracker {
             return; // Already installed as PWA
         }
 
+        // Check if user is in an in-app browser first
+        if (this.isInAppBrowser()) {
+            const dismissed = localStorage.getItem('sunnahTrackerInAppDismissed') === 'true';
+            if (!dismissed) {
+                this.showInAppBrowserBanner();
+            }
+            return; // Don't show PWA banner in in-app browsers
+        }
+
         // Check if user is in incognito mode (limited PWA support)
         if (this.isIncognitoMode()) {
             return;
@@ -2581,6 +2652,107 @@ class SunnahTracker {
         this.hidePWABanner();
         localStorage.setItem('sunnahTrackerBannerDismissed', 'true');
         this.showToast(this.currentLanguage === 'en' ? 'You can still install the app from your browser menu' : 'يمكنك تثبيت التطبيق من قائمة المتصفح');
+    }
+
+    // In-App Browser Detection Methods
+    isInAppBrowser() {
+        const userAgent = navigator.userAgent || navigator.vendor || window.opera;
+        
+        // Detect various in-app browsers
+        const inAppBrowsers = [
+            'FBAN',         // Facebook
+            'FBAV',         // Facebook
+            'FBSV',         // Facebook
+            'Instagram',    // Instagram
+            'WhatsApp',     // WhatsApp
+            'Telegram',     // Telegram
+            'Line',         // Line app
+            'MicroMessenger', // WeChat
+            'TikTok',       // TikTok
+            'Snapchat'      // Snapchat
+        ];
+        
+        return inAppBrowsers.some(browser => userAgent.includes(browser)) ||
+               // iOS WebView detection
+               (userAgent.includes('Safari') && userAgent.includes('Version') && 
+                userAgent.includes('Mobile') && !userAgent.includes('CriOS') && 
+                !userAgent.includes('FxiOS') && !userAgent.includes('EdgiOS'));
+    }
+
+    showInAppBrowserBanner() {
+        const banner = document.getElementById('inAppBrowserBanner');
+        if (banner) {
+            banner.classList.remove('hidden');
+            setTimeout(() => {
+                banner.classList.add('show');
+            }, 1000); // Show after 1 second
+        }
+    }
+
+    hideInAppBrowserBanner() {
+        const banner = document.getElementById('inAppBrowserBanner');
+        if (banner) {
+            banner.classList.remove('show');
+            setTimeout(() => {
+                banner.classList.add('hidden');
+            }, 300);
+        }
+    }
+
+    async copyLinkToClipboard() {
+        const url = window.location.href;
+        
+        try {
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+                await navigator.clipboard.writeText(url);
+                this.showToast(this.currentLanguage === 'en' ? 
+                    '📋 Link copied! Paste it in your browser' : 
+                    '📋 تم نسخ الرابط! الصقه في متصفحك');
+            } else {
+                // Fallback for older browsers
+                this.fallbackCopyToClipboard(url);
+            }
+        } catch (err) {
+            this.fallbackCopyToClipboard(url);
+        }
+        
+        // Hide banner after copying
+        setTimeout(() => {
+            this.hideInAppBrowserBanner();
+        }, 2000);
+    }
+
+    fallbackCopyToClipboard(text) {
+        // Create temporary text area
+        const textArea = document.createElement('textarea');
+        textArea.value = text;
+        textArea.style.position = 'fixed';
+        textArea.style.left = '-999999px';
+        textArea.style.top = '-999999px';
+        document.body.appendChild(textArea);
+        textArea.focus();
+        textArea.select();
+        
+        try {
+            document.execCommand('copy');
+            this.showToast(this.currentLanguage === 'en' ? 
+                '📋 Link copied! Paste it in your browser' : 
+                '📋 تم نسخ الرابط! الصقه في متصفحك');
+        } catch (err) {
+            this.showToast(this.currentLanguage === 'en' ? 
+                'Copy this URL and open in browser' : 
+                'انسخ هذا الرابط وافتحه في المتصفح');
+        }
+        
+        document.body.removeChild(textArea);
+    }
+
+    dismissInAppBrowserBanner() {
+        this.hideInAppBrowserBanner();
+        localStorage.setItem('sunnahTrackerInAppDismissed', 'true');
+        this.showToast(this.currentLanguage === 'en' ? 
+            'Tip: Use "Open in Browser" option for best experience' : 
+            'نصيحة: استخدم خيار "فتح في المتصفح" للحصول على أفضل تجربة');
     }
 }
 
