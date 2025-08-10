@@ -1303,10 +1303,174 @@ body::before {
     color: var(--islamic-border);
     text-shadow: 0 0 8px rgba(210, 180, 140, 0.6);
 }
+
+/* PWA Installation Banner */
+.pwa-banner {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(135deg, var(--islamic-brown) 0%, var(--islamic-dark-brown) 100%);
+    color: var(--islamic-warm-white);
+    z-index: 1000;
+    box-shadow: 0 4px 20px rgba(139, 69, 19, 0.3);
+    border-bottom: 3px solid var(--islamic-gold);
+    transform: translateY(-100%);
+    transition: transform 0.3s ease-in-out;
+}
+
+.pwa-banner.show {
+    transform: translateY(0);
+}
+
+.pwa-banner.hidden {
+    display: none;
+}
+
+.banner-content {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    max-width: 480px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.banner-icon {
+    font-size: 1.5rem;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+}
+
+.banner-text {
+    flex: 1;
+    min-width: 0;
+}
+
+.banner-title {
+    font-size: 1rem;
+    font-weight: 700;
+    margin: 0 0 0.25rem 0;
+    color: var(--islamic-warm-white);
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.banner-description {
+    font-size: 0.85rem;
+    margin: 0;
+    opacity: 0.9;
+    line-height: 1.3;
+}
+
+.banner-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex-shrink: 0;
+}
+
+.install-button {
+    background: var(--islamic-gold);
+    color: var(--islamic-dark-brown);
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(218, 165, 32, 0.3);
+}
+
+.install-button:hover {
+    background: var(--islamic-golden);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(218, 165, 32, 0.4);
+}
+
+.dismiss-btn {
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--islamic-warm-white);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+}
+
+.dismiss-btn:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: scale(1.1);
+}
+
+/* RTL Support for banner */
+[dir="rtl"] .banner-content {
+    text-align: right;
+}
+
+[dir="rtl"] .banner-actions {
+    flex-direction: row-reverse;
+}
+
+/* Dark mode support for banner */
+.dark-mode .pwa-banner {
+    background: linear-gradient(135deg, #2D2D2D 0%, #1A1A1A 100%);
+    border-bottom-color: var(--accent-color);
+}
+
+.dark-mode .install-button {
+    background: var(--accent-color);
+    color: var(--bg-primary);
+}
+
+.dark-mode .install-button:hover {
+    background: var(--islamic-golden);
+}
+
+/* Mobile responsive banner */
+@media (max-width: 480px) {
+    .banner-content {
+        padding: 0.75rem;
+        gap: 0.75rem;
+    }
+    
+    .banner-title {
+        font-size: 0.9rem;
+    }
+    
+    .banner-description {
+        font-size: 0.8rem;
+    }
+    
+    .install-button {
+        padding: 0.4rem 0.8rem;
+        font-size: 0.85rem;
+    }
+}
     </style>
 </head>
 <body>
     <div id="app">
+        <!-- PWA Installation Banner -->
+        <div id="pwaInstallBanner" class="pwa-banner hidden">
+            <div class="banner-content">
+                <span class="banner-icon">🕌</span>
+                <div class="banner-text">
+                    <h3 class="banner-title" data-en="Install Sunnah Tracker" data-ar="تثبيت تتبع السنن">Install Sunnah Tracker</h3>
+                    <p class="banner-description" data-en="Get easier access to your daily prayers! Install as an app for better experience." data-ar="احصل على وصول أسهل لصلواتك اليومية! قم بالتثبيت كتطبيق لتجربة أفضل.">Get easier access to your daily prayers! Install as an app for better experience.</p>
+                </div>
+                <div class="banner-actions">
+                    <button id="installAppBtn" class="install-button" data-en="Install" data-ar="تثبيت">Install</button>
+                    <button id="dismissBanner" class="dismiss-btn" title="Close">✕</button>
+                </div>
+            </div>
+        </div>
+
         <!-- Header -->
         <header class="header">
             <h1 class="app-title" data-en="Sunnah Tracker" data-ar="تتبع السنن الرواتب">Sunnah Tracker</h1>
@@ -1518,6 +1682,7 @@ class SunnahTracker {
         this.prayerData = this.loadPrayerData();
         this.currentView = 'dashboard'; // dashboard, calendar, daily, report
         this.previousView = 'dashboard'; // Track previous view for back navigation
+        this.deferredPrompt = null; // For PWA installation
         
         this.initializeApp();
     }
@@ -1529,6 +1694,7 @@ class SunnahTracker {
         this.renderDashboard();
         this.showDashboardView();
         this.registerServiceWorker();
+        this.initializePWABanner();
     }
 
     setupEventListeners() {
@@ -1587,6 +1753,15 @@ class SunnahTracker {
         // Share day
         document.getElementById('shareDay').addEventListener('click', () => {
             this.shareDay();
+        });
+
+        // PWA Banner event listeners
+        document.getElementById('installAppBtn').addEventListener('click', () => {
+            this.installPWA();
+        });
+
+        document.getElementById('dismissBanner').addEventListener('click', () => {
+            this.dismissPWABanner();
         });
     }
 
@@ -2280,6 +2455,132 @@ class SunnahTracker {
                     });
             });
         }
+    }
+
+    // PWA Installation Banner Methods
+    initializePWABanner() {
+        // Check if PWA is already installed
+        if (window.matchMedia('(display-mode: standalone)').matches) {
+            return; // Already installed as PWA
+        }
+
+        // Check if user is in incognito mode (limited PWA support)
+        if (this.isIncognitoMode()) {
+            return;
+        }
+
+        // Check visit count and banner dismissal
+        const visitCount = parseInt(localStorage.getItem('sunnahTrackerVisits') || '0');
+        const bannerDismissed = localStorage.getItem('sunnahTrackerBannerDismissed') === 'true';
+        
+        localStorage.setItem('sunnahTrackerVisits', (visitCount + 1).toString());
+
+        // Show banner on first 3 visits if not dismissed
+        if (visitCount < 3 && !bannerDismissed) {
+            setTimeout(() => this.showPWABanner(), 2000); // Show after 2 seconds
+        }
+
+        // Listen for beforeinstallprompt event
+        window.addEventListener('beforeinstallprompt', (e) => {
+            e.preventDefault();
+            this.deferredPrompt = e;
+            
+            // If banner isn't already showing, show it when prompt is available
+            if (!document.getElementById('pwaInstallBanner').classList.contains('show')) {
+                this.showPWABanner();
+            }
+        });
+
+        // Listen for app installation
+        window.addEventListener('appinstalled', () => {
+            this.hidePWABanner();
+            this.showToast(this.currentLanguage === 'en' ? 'App installed successfully!' : 'تم تثبيت التطبيق بنجاح!');
+        });
+    }
+
+    isIncognitoMode() {
+        // Simple detection for incognito mode
+        try {
+            if ('serviceWorker' in navigator && navigator.serviceWorker.controller === null) {
+                return false; // Normal mode with no active service worker yet
+            }
+            return !window.indexedDB || 
+                   navigator.webkitTemporaryStorage === undefined;
+        } catch (e) {
+            return true; // Likely incognito if any errors
+        }
+    }
+
+    showPWABanner() {
+        const banner = document.getElementById('pwaInstallBanner');
+        if (banner) {
+            banner.classList.remove('hidden');
+            setTimeout(() => {
+                banner.classList.add('show');
+            }, 100);
+        }
+    }
+
+    hidePWABanner() {
+        const banner = document.getElementById('pwaInstallBanner');
+        if (banner) {
+            banner.classList.remove('show');
+            setTimeout(() => {
+                banner.classList.add('hidden');
+            }, 300);
+        }
+    }
+
+    async installPWA() {
+        if (this.deferredPrompt) {
+            // Use the deferred prompt
+            this.deferredPrompt.prompt();
+            const { outcome } = await this.deferredPrompt.userChoice;
+            
+            if (outcome === 'accepted') {
+                this.hidePWABanner();
+                this.showToast(this.currentLanguage === 'en' ? 'Installing app...' : 'جاري تثبيت التطبيق...');
+            }
+            
+            this.deferredPrompt = null;
+        } else {
+            // Show manual installation instructions
+            this.showInstallInstructions();
+        }
+    }
+
+    showInstallInstructions() {
+        const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
+        const isAndroid = /Android/.test(navigator.userAgent);
+        
+        let instructions = '';
+        
+        if (isIOS) {
+            instructions = this.currentLanguage === 'en' ? 
+                'To install: Tap the Share button (↗️) at the bottom, then select "Add to Home Screen"' :
+                'للتثبيت: اضغط على زر المشاركة (↗️) في الأسفل، ثم اختر "إضافة للشاشة الرئيسية"';
+        } else if (isAndroid) {
+            instructions = this.currentLanguage === 'en' ? 
+                'To install: Look for the Install button (⊕) in your browser menu or address bar' :
+                'للتثبيت: ابحث عن زر التثبيت (⊕) في قائمة المتصفح أو شريط العنوان';
+        } else {
+            instructions = this.currentLanguage === 'en' ? 
+                'To install: Look for the Install button (⊕) in your browser address bar or menu (⋮)' :
+                'للتثبيت: ابحث عن زر التثبيت (⊕) في شريط عنوان المتصفح أو القائمة (⋮)';
+        }
+        
+        this.showToast(instructions);
+        
+        // Hide banner after showing instructions
+        setTimeout(() => {
+            this.hidePWABanner();
+        }, 1000);
+    }
+
+    dismissPWABanner() {
+        this.hidePWABanner();
+        localStorage.setItem('sunnahTrackerBannerDismissed', 'true');
+        this.showToast(this.currentLanguage === 'en' ? 'You can still install the app from your browser menu' : 'يمكنك تثبيت التطبيق من قائمة المتصفح');
     }
 }
 
